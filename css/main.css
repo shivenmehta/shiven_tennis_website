@@ -1,0 +1,137 @@
+body {
+  background: green;
+  margin: 0;
+  font-family: 'SF Pro';
+}
+
+section.navigation {
+  border-bottom: 2px solid lightgreen;
+  height: 40px;
+}
+
+section.navigation .container {
+  margin-top: 0.7em;
+  margin-left: 1.5em;
+  margin-bottom: 1em;
+  color: white;
+}
+
+section.navigation .container .nav-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 1.15em;
+  font-weight: 500;
+}
+
+section.navigation .container .nav-header .name {
+  text-decoration: none;
+  color: white;
+  padding: 0.2em;
+}
+
+section.navigation .container .nav-header .tennis-ball-icon {
+  margin-right: 0.2em;
+  position: relative;
+  padding: 0.2em;
+}
+
+section.navigation .container .nav-header .page-headings {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: 45em;
+  gap: 2em;
+  color: white;
+}
+
+section.navigation .container .nav-header .page-headings .page-name {
+  text-decoration: none;
+  color: white;
+  border-radius: 7px;
+  padding: 0.2em 0.3em;
+  -webkit-transition: background 0.2s ease, color 0.2s ease;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+section.navigation .container .nav-header .page-headings .page-name:hover {
+  background: lightgreen;
+  color: white;
+}
+
+.content section.home-page {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 400px;
+}
+
+.content section.home-page .home-block {
+  margin-top: 4em;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-left: 4.5em;
+  color: white;
+}
+
+.content section.home-page .home-block .welcome-greeting {
+  font-size: 1.5em;
+  color: white;
+  font-weight: 500;
+  margin: 0;
+}
+
+.content section.home-page .home-block .welcome-name {
+  font-size: 4em;
+  font-weight: 600;
+  color: white;
+  margin-top: 0.1em;
+  line-height: 1.1;
+  margin-bottom: 0em;
+}
+
+.content section.home-page .home-block .welcome-tags {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 0.75em;
+  margin-top: 1em;
+}
+
+.content section.home-page .home-block .welcome-tags .welcome-tag {
+  font-size: 0.85em;
+  padding: 0.6em 1.4em;
+  border-radius: 8px;
+  text-decoration: none;
+  -webkit-transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.content section.home-page .home-block .welcome-tags .welcome-tag.primary {
+  background: white;
+  color: #0b0b0b;
+  border: 1px solid white;
+}
+
+.content section.home-page .home-block .welcome-tags .welcome-tag.primary:hover {
+  background: #ddd;
+  border-color: #ddd;
+}
+
+.content section.home-page .home-block .welcome-tags .welcome-tag.secondary {
+  background: white;
+  color: #0b0b0b;
+  border: 1px solid white;
+}
+
+.content section.home-page .home-block .welcome-tags .welcome-tag.secondary:hover {
+  background: #ddd;
+  border-color: #ddd;
+}
+
+.content section.home-page .home-block .welcome-tagline {
+  margin-top: 3em;
+}
+/*# sourceMappingURL=main.css.map */
