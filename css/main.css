@@ -1,17 +1,21 @@
 @charset "UTF-8";
 /* ─── CSS Variables ─────────────────────────────── */
 :root {
-  --green-dark: #1a3a2a;
-  --green-mid: #2d5a3d;
-  --green-light: #3d7a52;
-  --yellow: #d4e840;
-  --yellow-warm: #c8dc30;
-  --white: #f5f5ef;
-  --off-white: #e8e8e0;
-  --text-muted: #8a9e8f;
+  --green-dark:   #1a3a2a;
+  --green-mid:    #2d5a3d;
+  --green-light:  #3d7a52;
+  --yellow:       #d4e840;
+  --yellow-warm:  #c8dc30;
+  --white:        #f5f5ef;
+  --off-white:    #e8e8e0;
+  --text-muted:   #8a9e8f;
   --font-heading: 'Bebas Neue', sans-serif;
-  --font-body: 'DM Sans', sans-serif;
-  --font-italic: 'Playfair Display', serif;
+  --font-body:    'DM Sans', sans-serif;
+  --font-italic:  'Playfair Display', serif;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -25,22 +29,35 @@ body {
 
 /*Navigation Header at top of website */
 section.navigation {
+  position: -webkit-sticky;
   position: sticky;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12); /* subtler than solid lightgreen */
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  /* subtler than solid lightgreen */
   background: rgba(26, 58, 42, 0.85);
-  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+          backdrop-filter: blur(12px);
 }
+
 section.navigation .container {
   padding: 0 2.5em;
 }
+
 section.navigation .container .nav-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center; /* vertically aligns everything in the same row */
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  /* vertically aligns everything in the same row */
   font-size: 1.5em;
   height: 70px;
   text-decoration: none;
   color: var(--off-white);
 }
+
 section.navigation .container .nav-header .name {
   text-decoration: none;
   color: var(--yellow);
@@ -48,16 +65,23 @@ section.navigation .container .nav-header .name {
   letter-spacing: 1.5px;
   font-family: var(--font-heading);
 }
+
 section.navigation .container .nav-header .tennis-ball-icon {
   margin-left: 1em;
-  margin-right: 0.2em;
+  margin-right: 0.4em;
 }
+
 section.navigation .container .nav-header .page-headings {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin-left: auto;
   gap: 2.5em;
 }
+
 section.navigation .container .nav-header .page-headings .page-name {
   font-family: var(--font-heading);
   text-decoration: none;
@@ -67,8 +91,10 @@ section.navigation .container .nav-header .page-headings .page-name {
   letter-spacing: 0.8px;
   opacity: 0.85;
   border-radius: 7px;
+  -webkit-transition: opacity 0.2s ease, color 0.2s ease;
   transition: opacity 0.2s ease, color 0.2s ease;
 }
+
 section.navigation .container .nav-header .page-headings .page-name:hover {
   opacity: 1;
   color: var(--yellow);
@@ -77,19 +103,30 @@ section.navigation .container .nav-header .page-headings .page-name:hover {
 /*Main Content of Website - Under header */
 .content {
   /* Home Page Styling */
+  /* About Me Section on First Page */
 }
+
 .content section.home-page {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   height: 700px;
   margin-top: 11em;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12); /* subtler than solid lightgreen */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  /* subtler than solid lightgreen */
   /*Left Side of the Home Page - Text Portion */
+  /*Right Side of Home Page - Home page cards */
 }
+
 .content section.home-page .home-block {
   margin-left: 4.5em;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   color: white;
 }
+
 .content section.home-page .home-block .welcome-greeting {
   font-family: var(--font-heading);
   font-size: 8em;
@@ -100,122 +137,173 @@ section.navigation .container .nav-header .page-headings .page-name:hover {
   letter-spacing: 3px;
   text-transform: uppercase;
 }
+
 .content section.home-page .home-block .welcome-greeting.primary {
   color: var(--off-white);
 }
+
 .content section.home-page .home-block .welcome-greeting.secondary {
   color: var(--yellow);
 }
+
 .content section.home-page .home-block .welcome-tagline {
   font-family: var(--font-italic);
   color: var(--off-white);
   font-size: 1.5em;
   opacity: 0.8;
 }
+
 .content section.home-page .home-block .welcome-description {
   font-size: 1.1em;
   width: 470px;
   line-height: 1.3em;
   margin-bottom: 2em;
 }
+
 .content section.home-page .home-block .action-tags {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   gap: 1.5em;
   margin-top: 4em;
 }
+
 .content section.home-page .home-block .action-tags .action-tag {
   font-family: var(--font-body);
   font-size: 1em;
   padding: 1em 1.8em;
   border-radius: 25px;
   text-decoration: none;
+  -webkit-transition: -webkit-transform 0.3s ease, -webkit-box-shadow 0.2s ease;
+  transition: -webkit-transform 0.3s ease, -webkit-box-shadow 0.2s ease;
   transition: transform 0.3s ease, box-shadow 0.2s ease;
+  transition: transform 0.3s ease, box-shadow 0.2s ease, -webkit-transform 0.3s ease, -webkit-box-shadow 0.2s ease;
 }
+
 .content section.home-page .home-block .action-tags .action-tag.primary {
   background: var(--yellow);
   color: #0b0b0b;
   border: 1px solid var(--yellow);
-  box-shadow: 0 0 5px var(--yellow);
+  -webkit-box-shadow: 0 0 5px var(--yellow);
+          box-shadow: 0 0 5px var(--yellow);
 }
+
 .content section.home-page .home-block .action-tags .action-tag.primary:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 0 10px var(--yellow-warm);
+  -webkit-transform: translateY(-8px);
+          transform: translateY(-8px);
+  -webkit-box-shadow: 0 0 10px var(--yellow-warm);
+          box-shadow: 0 0 10px var(--yellow-warm);
 }
+
 .content section.home-page .home-block .action-tags .action-tag.secondary {
   background: white;
   color: #0b0b0b;
   border: 1px solid white;
-  box-shadow: 0 0 5px white;
+  -webkit-box-shadow: 0 0 5px white;
+          box-shadow: 0 0 5px white;
 }
+
 .content section.home-page .home-block .action-tags .action-tag.secondary:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 0 10px white;
+  -webkit-transform: translateY(-8px);
+          transform: translateY(-8px);
+  -webkit-box-shadow: 0 0 10px white;
+          box-shadow: 0 0 10px white;
 }
-.content section.home-page {
-  /*Right Side of Home Page - Home page cards */
-}
+
 .content section.home-page .home-page-cards {
   margin-top: 3em;
   margin-right: 9em;
   margin-left: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
   gap: 1.4em;
 }
+
 .content section.home-page .home-page-cards .stat-card {
-  border: 1px solid rgba(255, 255, 255, 0.2); /* softer than solid white */
-  background: rgba(61, 122, 82, 0.4); /* --green-light at 40% opacity */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  /* softer than solid white */
+  background: rgba(61, 122, 82, 0.4);
+  /* --green-light at 40% opacity */
   padding: 1em 2em;
   border-radius: 15px;
   width: 170px;
   text-align: right;
+  -webkit-transition: background 0.3s ease, border-color 0.3s ease, -webkit-transform 0.3s ease;
+  transition: background 0.3s ease, border-color 0.3s ease, -webkit-transform 0.3s ease;
   transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+  transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease, -webkit-transform 0.3s ease;
   cursor: pointer;
 }
+
 .content section.home-page .home-page-cards .stat-card:hover {
-  transform: translateY(-8px);
+  -webkit-transform: translateY(-8px);
+          transform: translateY(-8px);
   background: rgba(61, 122, 82, 0.6);
   border-color: rgba(245, 255, 133, 0.4);
 }
+
 .content section.home-page .home-page-cards .stat-card .stat {
   font-size: 3.5em;
   font-family: var(--font-heading);
   color: var(--yellow);
 }
+
 .content section.home-page .home-page-cards .stat-card .stat-description {
   letter-spacing: 0.6px;
   color: var(--off-white);
   opacity: 0.5;
 }
+
 .content section.home-page .home-page-cards .location-card {
-  background: rgba(61, 122, 82, 0.6); /* --green-light at 40% opacity */
+  background: rgba(61, 122, 82, 0.6);
+  /* --green-light at 40% opacity */
   padding: 1em;
   text-align: right;
-  border: 1px solid var(--green-light); /* softer than solid white */
+  border: 1px solid var(--green-light);
+  /* softer than solid white */
   border-radius: 14px;
   width: 230px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
+
 .content section.home-page .home-page-cards .location-card .location-icon {
   margin-top: 0.3em;
   font-size: 1.3em;
   margin-right: 0.4em;
 }
+
 .content section.home-page .home-page-cards .location-card .location-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   text-align: left;
 }
+
 .content section.home-page .home-page-cards .location-card .location-text strong {
   color: var(--off-white);
   margin-bottom: 0.3em;
 }
+
 .content section.home-page .home-page-cards .location-card .location-text span {
   color: var(--off-white);
   font-size: 0.8em;
   opacity: 0.8;
 }
+
 .content section.home-page .home-page-cards .location-card .location {
   margin-right: 0.5em;
   font-weight: 600;
@@ -223,29 +311,39 @@ section.navigation .container .nav-header .page-headings .page-name:hover {
   font-family: var(--font-body);
   font-size: 1.3em;
 }
-.content {
-  /* About Me Section on First Page */
-}
+
 .content section.about-me-page {
   height: 500px;
   background: rgba(61, 122, 82, 0.4);
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12); /* subtler than solid lightgreen */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  /* subtler than solid lightgreen */
+  scroll-margin-top: 70px;
+  /* Matches your nav-header height to prevent overlap */
 }
+
 .content section.about-me-page .about-me-block {
   margin-left: 4.5em;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   color: white;
 }
+
 .content section.about-me-page .about-me-block .about-me-heading {
   font-family: var(--font-heading);
   font-size: 3em;
   font-weight: 600;
   margin-top: 1em;
 }
+
 .content section.about-me-page .about-me-block .about-me-heading span {
   color: var(--yellow);
 }
+
 .content section.about-me-page .about-me-block .about-me-description {
   color: var(--off-white);
   font-size: 1em;
@@ -253,13 +351,18 @@ section.navigation .container .nav-header .page-headings .page-name:hover {
   width: 475px;
   line-height: 1.5em;
 }
+
 .content section.about-me-page .about-me-block .about-me-tags {
   margin-top: 3em;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   width: 500px;
   gap: 1em;
 }
+
 .content section.about-me-page .about-me-block .about-me-tags .tag {
   color: var(--yellow);
   font-family: var(--font-body);
@@ -271,21 +374,32 @@ section.navigation .container .nav-header .page-headings .page-name:hover {
   background: rgba(212, 232, 64, 0.05);
   border-radius: 20px;
   padding: 0.5em 1.2em;
+  -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
   cursor: default;
 }
+
 .content section.about-me-page .about-me-block .about-me-tags .tag:hover {
   background: var(--yellow);
   color: var(--green-dark);
   border-color: var(--yellow);
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(212, 232, 64, 0.2);
+  -webkit-transform: translateY(-3px);
+          transform: translateY(-3px);
+  -webkit-box-shadow: 0 5px 15px rgba(212, 232, 64, 0.2);
+          box-shadow: 0 5px 15px rgba(212, 232, 64, 0.2);
 }
+
 .content section.getting-started-page {
-  height: 500px;
+  height: 800px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
+
 .content section.getting-started-page .getting-started-block .sub-heading {
   margin-top: 6em;
   color: var(--yellow);
@@ -294,44 +408,135 @@ section.navigation .container .nav-header .page-headings .page-name:hover {
   text-align: center;
   letter-spacing: 0.1em;
 }
+
 .content section.getting-started-page .getting-started-block .heading {
   color: white;
   font-family: var(--font-heading);
   font-size: 4em;
   font-weight: 600;
-  margin-top: 0.6em;
+  margin-top: 0.4em;
   text-align: center;
 }
+
 .content section.getting-started-page .getting-started-cards {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  margin-left: 2em;
-  gap: 1em;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 0 3em;
+  gap: 2em;
 }
+
 .content section.getting-started-page .getting-started-cards .card {
-  background: rgba(61, 122, 82, 0.4); /* --green-light at 40% opacity */
+  background: rgba(61, 122, 82, 0.4);
+  /* --green-light at 40% opacity */
   border: 1px solid grey;
-  width: 200px;
+  border-radius: 10px;
+  width: 225px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
+
 .content section.getting-started-page .getting-started-cards .card .card-top {
   margin-top: 1.5em;
-  margin-left: 1.5em;
+  padding: 0 1.5em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
+
+.content section.getting-started-page .getting-started-cards .card .card-top .icon {
+  font-size: 2em;
+}
+
 .content section.getting-started-page .getting-started-cards .card .card-top .card-num {
-  text-align: right;
+  font-family: var(--font-heading);
+  color: var(--yellow-warm);
+  font-size: 5em;
+  opacity: 0.2;
 }
+
 .content section.getting-started-page .getting-started-cards .card .card-bottom {
-  margin-left: 1.5em;
+  padding: 0 1.5em;
+  margin-bottom: 1em;
 }
+
 .content section.getting-started-page .getting-started-cards .card .card-bottom .card-heading {
   color: white;
   line-height: 1;
   font-size: 1em;
 }
+
 .content section.getting-started-page .getting-started-cards .card .card-bottom .card-description {
   color: var(--off-white);
   opacity: 0.5;
   font-size: 0.8em;
-}/*# sourceMappingURL=main.css.map */
+}
+
+.content section.getting-started-page .ready-card {
+  margin: 6em auto 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0.5em 3em;
+  border: 1px solid var(--yellow);
+  border-radius: 15px;
+  background: var(--yellow);
+  width: 1000px;
+}
+
+.content section.getting-started-page .ready-card .ready-heading {
+  font-size: 3.5em;
+  font-family: var(--font-heading);
+  color: var(--green-dark);
+}
+
+.content section.getting-started-page .ready-card .ready-button {
+  text-decoration: none;
+  background: var(--green-dark);
+  color: var(--yellow);
+  border: 1px solid var(--yellow);
+  border-radius: 27px;
+  padding: 1em 1.2em;
+  font-size: 1em;
+  -webkit-transition: background-color 0.3s ease, -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-box-shadow 0.3s ease;
+  transition: background-color 0.3s ease, -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-box-shadow 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.3s ease, box-shadow 0.3s ease, -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-box-shadow 0.3s ease;
+}
+
+.content section.getting-started-page .ready-card .ready-button:hover {
+  -webkit-transform: translateY(-5px) scale(1.05);
+          transform: translateY(-5px) scale(1.05);
+  background-color: var(--green-mid);
+  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.content section.getting-started-page .ready-card .ready-button:active {
+  -webkit-transform: translateY(-2px) scale(0.98);
+          transform: translateY(-2px) scale(0.98);
+}
+/*# sourceMappingURL=main.css.map */
