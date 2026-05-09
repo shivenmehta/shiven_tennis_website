@@ -100,7 +100,7 @@ section.navigation {
     section.home-page {
 
         display: flex;
-        height: 680px;
+        height: 700px;
         margin-top: 11em;
         border-bottom: 1px solid rgba(255, 255, 255, 0.12);  /* subtler than solid lightgreen */
 
@@ -275,9 +275,156 @@ section.navigation {
 
             }
         }
+    }
+
+    /* About Me Section on First Page */
+    section.about-me-page {
+       height: 500px;
+       background: rgba(61, 122, 82, 0.4);
+       display: flex;
+       border-bottom: 1px solid rgba(255, 255, 255, 0.12);  /* subtler than solid lightgreen */
+
+       .about-me-block {
+            margin-left: 4.5em;
+            flex-direction: column;
+            color:white;
+
+            .about-me-heading {
+                font-family: var(--font-heading);
+                font-size: 3em;
+                font-weight: 600;
+                margin-top: 1em;
+
+                span {
+                    color: var(--yellow);
+                }
+
+            }
+
+            .about-me-description {
+                color: var(--off-white);
+                font-size: 1em;
+                opacity: 0.8;
+                width: 475px;
+                line-height: 1.5em;
+            }
+
+            .about-me-tags {
+                margin-top: 3em;
+                display: flex;
+                flex-wrap: wrap;
+                width: 500px;
+                gap: 1em;
+                
+                
+                .tag {
+                    color: var(--yellow);
+                    font-family: var(--font-body);
+                    font-size: 0.85em;
+                    font-weight: 500;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                    border: 1px solid rgba(212, 232, 64, 0.3);
+                    background: rgba(212, 232, 64, 0.05);
+                    border-radius: 20px;
+                    padding: 0.5em 1.2em;
+                    transition: all 0.3s ease;
+                    cursor: default;
+
+                    &:hover {
+                        background: var(--yellow);
+                        color: var(--green-dark);
+                        border-color: var(--yellow);
+                        transform: translateY(-3px);
+                        box-shadow: 0 5px 15px rgba(212, 232, 64, 0.2);
+                    }
+                }
+
+            }
 
 
-        
+       }
 
     }
+
+    section.getting-started-page {
+        height: 500px;
+        display: flex;
+        flex-direction: column;
+
+        .getting-started-block {
+            
+
+            .sub-heading {
+                margin-top: 6em;
+                color: var(--yellow);
+                font-family: var(--font-body);
+                text-transform: uppercase;
+                text-align: center;
+                letter-spacing: 0.1em;
+            }
+
+            .heading {
+                color: white;
+                font-family: var(--font-heading);
+                font-size: 4em;
+                font-weight: 600;
+                margin-top: 0.6em;
+                text-align: center;
+            }
+
+        }
+
+        .getting-started-cards {
+            display: flex;
+            align-items: center;
+            margin-left: 2em;
+            gap: 1em;
+        
+
+            .card {
+                background: rgba(61, 122, 82, 0.4);  /* --green-light at 40% opacity */ 
+                border: 1px solid grey;
+                width: 200px;
+                display: flex;
+                flex-direction: column;
+
+                .card-top {
+                    margin-top: 1.5em;
+                    margin-left: 1.5em;
+                    
+
+                    .card-num {
+                        text-align: right;
+                    }
+
+                }
+
+                .card-bottom {
+                    margin-left: 1.5em;
+
+                    .card-heading {
+                        color: white;
+
+                        line-height: 1;
+                        font-size: 1em;
+                    }
+                    
+                    .card-description {
+                        color: var(--off-white);
+                        opacity: 0.5;
+                        font-size: 0.8em;
+                    }
+
+                }
+
+
+            }
+        }
+
+
+    }
+
+
+
 }
