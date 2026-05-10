@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+    <!-- Google Font Link for Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
 </head>
 
 <body>
@@ -33,11 +35,274 @@
      </section>
 
       <!-- Main Content -->
-     <main class = "content">
-        
-     </main>
-     
+     <main class="content">
+        <section class="bookings">
 
+            <div class="bookings-hero">
+                <h1 class="bookings-heading">
+                    <span class="primary">Book a</span>
+                    <span class="secondary">Session.</span>
+                </h1>
+                <p class="bookings-subheading">Pick an open slot on the calendar, fill in your details, and you're locked in. First session is on me.</p>
+            </div>
+
+            <div class="bookings-main">
+                <!-- Right: Booking Form -->
+                <div class="bookings-form-block">
+                    <p class="section-label">Your Details</p>
+                    <div class="bookings-form">
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="first-name">First Name</label>
+                                <input type="text" id="first-name" placeholder="Shiven">
+                            </div>
+                            <div class="form-group">
+                                <label for="last-name">Last Name</label>
+                                <input type="text" id="last-name" placeholder="Mehta">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" placeholder="you@example.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" placeholder="+1 (408) 000-0000">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Preferred Date & Time</label>
+                            <div class="datetime-display" id="datetime-display" onclick="toggleCalendar()">
+                                <i>📅</i>
+                                <span id="datetime-label">Select a date and time</span>
+                                <span class="datetime-arrow">›</span>
+                            </div>
+                            <input type="hidden" id="selected-datetime" name="datetime">
+                        </div>
+
+                        <!-- Calendar Popup -->
+                        <div class="calendar-popup" id="calendar-popup">
+                            
+                            <div class = "wrapper">
+                                <header>
+                                    <p class = "current-date">May 2026</p>
+                                    <div class = "icons">
+                                        <span class = "material-symbols-rounded">chevron_left</span>
+                                        <span class = "material-symbols-rounded">chevron_right</span>
+                                    </div>
+                                </header>
+                                <div class="calendar">
+                                    <ul class="weeks">
+                                        <li>Sun</li>
+                                        <li>Mon</li>
+                                        <li>Tue</li>
+                                        <li>Wed</li>
+                                        <li>Thu</li>
+                                        <li>Fri</li>
+                                        <li>Sat</li>
+                                    </ul>
+                                    <ul class="days">
+                                        <li class = "inactive">28</li>
+                                        <li class = "inactive">29</li>
+                                        <li class = "inactive">30</li>
+                                        <li class = "inactive">31</li>
+                                        <li>1</li>
+                                        <li>2</li>
+                                        <li>3</li>
+                                        <li>4</li>
+                                        <li>5</li>
+                                        <li>6</li>
+                                        <li>7</li>
+                                        <li>8</li>
+                                        <li>9</li>
+                                        <li>10</li>
+                                        <li>11</li>
+                                        <li>12</li>
+                                        <li>13</li>
+                                        <li>14</li>
+                                        <li>15</li>
+                                        <li>16</li>
+                                        <li>17</li>
+                                        <li>18</li>
+                                        <li>19</li>
+                                        <li>20</li>
+                                        <li>21</li>
+                                        <li class = "active">22</li>
+                                        <li>23</li>
+                                        <li>24</li>
+                                        <li>25</li>
+                                        <li>26</li>
+                                        <li>27</li>
+                                        <li>28</li>
+                                        <li>29</li>
+                                        <li>30</li>
+                                        <li class = "inactive">1</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Month View -->
+                            <!--
+                            <div class="calendar-month-view" id="month-view">
+                                <div class="calendar-nav">
+                                    <button onclick="changeMonth(-1)">‹</button>
+                                    <span id="month-label"></span>
+                                    <button onclick="changeMonth(1)">›</button>
+                                </div>
+                                <div class="calendar-weekdays">
+                                    <span>Su</span><span>Mo</span><span>Tu</span>
+                                    <span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
+                                </div>
+                                <div class="calendar-days" id="calendar-days"></div>
+                            </div>
+                            -->
+
+                            <!-- Time Slot View (shown after picking a date) -->
+                            <!--
+                            <div class="calendar-time-view" id="time-view" style="display:none;">
+                                <div class="time-view-header">
+                                    <button onclick="backToMonth()">‹ Back</button>
+                                    <span id="selected-date-label"></span>
+                                </div>
+                                <p class="time-view-subtitle">Available slots</p>
+                                <div class="time-slots" id="time-slots"></div>
+                            </div>
+                            -->
+                        </div>
+
+                        <div class="form-group">
+                            <label for="skill-level">Skill Level</label>
+                            <select id="skill-level">
+                                <option value="" disabled selected>Select your level</option>
+                                <option>Beginner (Never played before)</option>
+                                <option>Beginner-Intermediate (NTRP 2.0–3.0)</option>
+                                <option>Intermediate (NTRP 3.0–4.0)</option>
+                                <option>Advanced (NTRP 4.0+)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="notes">Anything I should know? (optional)</label>
+                            <textarea id="notes" rows="3" placeholder="Goals, injuries, preferred court, etc."></textarea>
+                        </div>
+
+                        <button class="submit-btn" type="submit">Confirm Booking →</button>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+    </main>
+     
+<script>
+    // ── Your available times per day ──────────────────
+    // 0 = Sunday, 1 = Monday, ... 6 = Saturday
+    const availability = {
+        1: ['5:00 PM', '6:00 PM', '7:00 PM'],        // Monday
+        2: ['5:00 PM', '6:00 PM', '7:00 PM'],        // Tuesday
+        3: ['5:00 PM', '6:00 PM', '7:00 PM'],        // Wednesday
+        4: ['5:00 PM', '6:00 PM', '7:00 PM'],        // Thursday
+        6: ['9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '3:00 PM'],  // Saturday
+        0: ['10:00 AM', '11:00 AM', '12:00 PM', '2:00 PM'],            // Sunday
+    };
+
+    let currentDate = new Date();
+    let selectedDate = null;
+
+    function toggleCalendar() {
+        const popup = document.getElementById('calendar-popup');
+        const isOpen = popup.style.display === 'block';
+        popup.style.display = isOpen ? 'none' : 'block';
+        if (!isOpen) renderMonth();
+    }
+
+    function renderMonth() {
+        const label = document.getElementById('month-label');
+        const grid  = document.getElementById('calendar-days');
+        const year  = currentDate.getFullYear();
+        const month = currentDate.getMonth();
+
+        label.textContent = currentDate.toLocaleString('default', { month: 'long', year: 'numeric' });
+
+        const firstDay = new Date(year, month, 1).getDay();
+        const daysInMonth = new Date(year, month + 1, 0).getDate();
+        const today = new Date();
+        today.setHours(0,0,0,0);
+
+        grid.innerHTML = '';
+
+        // Empty cells before first day
+        for (let i = 0; i < firstDay; i++) {
+            grid.innerHTML += `<span class="day empty"></span>`;
+        }
+
+        for (let d = 1; d <= daysInMonth; d++) {
+            const date = new Date(year, month, d);
+            const dayOfWeek = date.getDay();
+            const isPast = date < today;
+            const isAvailable = availability[dayOfWeek] && !isPast;
+            const isSelected = selectedDate && date.toDateString() === selectedDate.toDateString();
+
+            grid.innerHTML += `
+                <span class="day ${isPast ? 'past' : ''} ${isAvailable ? 'available' : 'unavailable'} ${isSelected ? 'selected' : ''}"
+                    onclick="${isAvailable ? `pickDate(${year}, ${month}, ${d})` : ''}">
+                    ${d}
+                </span>`;
+        }
+    }
+
+    function changeMonth(dir) {
+        currentDate.setMonth(currentDate.getMonth() + dir);
+        renderMonth();
+    }
+
+    function pickDate(year, month, day) {
+        selectedDate = new Date(year, month, day);
+        document.getElementById('month-view').style.display = 'none';
+        document.getElementById('time-view').style.display  = 'block';
+
+        document.getElementById('selected-date-label').textContent =
+            selectedDate.toLocaleDateString('default', { weekday: 'long', month: 'long', day: 'numeric' });
+
+        const slots = availability[selectedDate.getDay()];
+        const container = document.getElementById('time-slots');
+        container.innerHTML = slots.map(t => `
+            <button class="time-slot" onclick="pickTime('${t}')">${t}</button>
+        `).join('');
+    }
+
+    function backToMonth() {
+        document.getElementById('time-view').style.display  = 'none';
+        document.getElementById('month-view').style.display = 'block';
+    }
+
+    function pickTime(time) {
+        const dateStr = selectedDate.toLocaleDateString('default', { weekday: 'short', month: 'short', day: 'numeric' });
+        const full = `${dateStr} at ${time}`;
+
+        document.getElementById('datetime-label').textContent = full;
+        document.getElementById('selected-datetime').value    = full;
+        document.getElementById('calendar-popup').style.display = 'none';
+
+        // Highlight selected time slot
+        document.querySelectorAll('.time-slot').forEach(b => b.classList.remove('active'));
+        event.target.classList.add('active');
+    }
+
+    // Close popup when clicking outside
+    document.addEventListener('click', function(e) {
+        const popup   = document.getElementById('calendar-popup');
+        const trigger = document.getElementById('datetime-display');
+        if (!popup.contains(e.target) && !trigger.contains(e.target)) {
+            popup.style.display = 'none';
+        }
+    });
+</script>
     
 </body>
 </html>
