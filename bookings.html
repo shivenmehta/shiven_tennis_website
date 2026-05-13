@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
     <!-- Google Font Link for Icons -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <script src = "script.js" defer></script>
 </head>
 
 <body>
@@ -90,8 +91,8 @@
                                 <header>
                                     <p class = "current-date">May 2026</p>
                                     <div class = "icons">
-                                        <span class = "material-symbols-rounded">chevron_left</span>
-                                        <span class = "material-symbols-rounded">chevron_right</span>
+                                        <span id = "prev" class = "material-symbols-rounded">chevron_left</span>
+                                        <span id = "next" class = "material-symbols-rounded">chevron_right</span>
                                     </div>
                                 </header>
                                 <div class="calendar">
@@ -144,34 +145,10 @@
                                 </div>
                             </div>
 
-                            <!-- Month View -->
-                            <!--
-                            <div class="calendar-month-view" id="month-view">
-                                <div class="calendar-nav">
-                                    <button onclick="changeMonth(-1)">‹</button>
-                                    <span id="month-label"></span>
-                                    <button onclick="changeMonth(1)">›</button>
-                                </div>
-                                <div class="calendar-weekdays">
-                                    <span>Su</span><span>Mo</span><span>Tu</span>
-                                    <span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
-                                </div>
-                                <div class="calendar-days" id="calendar-days"></div>
-                            </div>
-                            -->
-
-                            <!-- Time Slot View (shown after picking a date) -->
-                            <!--
-                            <div class="calendar-time-view" id="time-view" style="display:none;">
-                                <div class="time-view-header">
-                                    <button onclick="backToMonth()">‹ Back</button>
-                                    <span id="selected-date-label"></span>
-                                </div>
-                                <p class="time-view-subtitle">Available slots</p>
-                                <div class="time-slots" id="time-slots"></div>
-                            </div>
-                            -->
+                        <div class="time-slot-panel" id="time-slot-panel" style="display:none;"></div>
                         </div>
+                        
+                        
 
                         <div class="form-group">
                             <label for="skill-level">Skill Level</label>
@@ -199,110 +176,5 @@
         </section>
     </main>
      
-<script>
-    // ── Your available times per day ──────────────────
-    // 0 = Sunday, 1 = Monday, ... 6 = Saturday
-    const availability = {
-        1: ['5:00 PM', '6:00 PM', '7:00 PM'],        // Monday
-        2: ['5:00 PM', '6:00 PM', '7:00 PM'],        // Tuesday
-        3: ['5:00 PM', '6:00 PM', '7:00 PM'],        // Wednesday
-        4: ['5:00 PM', '6:00 PM', '7:00 PM'],        // Thursday
-        6: ['9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '3:00 PM'],  // Saturday
-        0: ['10:00 AM', '11:00 AM', '12:00 PM', '2:00 PM'],            // Sunday
-    };
-
-    let currentDate = new Date();
-    let selectedDate = null;
-
-    function toggleCalendar() {
-        const popup = document.getElementById('calendar-popup');
-        const isOpen = popup.style.display === 'block';
-        popup.style.display = isOpen ? 'none' : 'block';
-        if (!isOpen) renderMonth();
-    }
-
-    function renderMonth() {
-        const label = document.getElementById('month-label');
-        const grid  = document.getElementById('calendar-days');
-        const year  = currentDate.getFullYear();
-        const month = currentDate.getMonth();
-
-        label.textContent = currentDate.toLocaleString('default', { month: 'long', year: 'numeric' });
-
-        const firstDay = new Date(year, month, 1).getDay();
-        const daysInMonth = new Date(year, month + 1, 0).getDate();
-        const today = new Date();
-        today.setHours(0,0,0,0);
-
-        grid.innerHTML = '';
-
-        // Empty cells before first day
-        for (let i = 0; i < firstDay; i++) {
-            grid.innerHTML += `<span class="day empty"></span>`;
-        }
-
-        for (let d = 1; d <= daysInMonth; d++) {
-            const date = new Date(year, month, d);
-            const dayOfWeek = date.getDay();
-            const isPast = date < today;
-            const isAvailable = availability[dayOfWeek] && !isPast;
-            const isSelected = selectedDate && date.toDateString() === selectedDate.toDateString();
-
-            grid.innerHTML += `
-                <span class="day ${isPast ? 'past' : ''} ${isAvailable ? 'available' : 'unavailable'} ${isSelected ? 'selected' : ''}"
-                    onclick="${isAvailable ? `pickDate(${year}, ${month}, ${d})` : ''}">
-                    ${d}
-                </span>`;
-        }
-    }
-
-    function changeMonth(dir) {
-        currentDate.setMonth(currentDate.getMonth() + dir);
-        renderMonth();
-    }
-
-    function pickDate(year, month, day) {
-        selectedDate = new Date(year, month, day);
-        document.getElementById('month-view').style.display = 'none';
-        document.getElementById('time-view').style.display  = 'block';
-
-        document.getElementById('selected-date-label').textContent =
-            selectedDate.toLocaleDateString('default', { weekday: 'long', month: 'long', day: 'numeric' });
-
-        const slots = availability[selectedDate.getDay()];
-        const container = document.getElementById('time-slots');
-        container.innerHTML = slots.map(t => `
-            <button class="time-slot" onclick="pickTime('${t}')">${t}</button>
-        `).join('');
-    }
-
-    function backToMonth() {
-        document.getElementById('time-view').style.display  = 'none';
-        document.getElementById('month-view').style.display = 'block';
-    }
-
-    function pickTime(time) {
-        const dateStr = selectedDate.toLocaleDateString('default', { weekday: 'short', month: 'short', day: 'numeric' });
-        const full = `${dateStr} at ${time}`;
-
-        document.getElementById('datetime-label').textContent = full;
-        document.getElementById('selected-datetime').value    = full;
-        document.getElementById('calendar-popup').style.display = 'none';
-
-        // Highlight selected time slot
-        document.querySelectorAll('.time-slot').forEach(b => b.classList.remove('active'));
-        event.target.classList.add('active');
-    }
-
-    // Close popup when clicking outside
-    document.addEventListener('click', function(e) {
-        const popup   = document.getElementById('calendar-popup');
-        const trigger = document.getElementById('datetime-display');
-        if (!popup.contains(e.target) && !trigger.contains(e.target)) {
-            popup.style.display = 'none';
-        }
-    });
-</script>
-    
 </body>
 </html>

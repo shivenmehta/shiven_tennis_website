@@ -673,19 +673,17 @@ section.navigation {
                     padding: 1.2em;
                     margin-top: 0.4em;*/
 
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
+                    display: none;
+                    align-items: flex-start;
                     background: var(--green-dark);
                     border: 1px solid rgba(255, 255, 255, 0.12);
                     border-radius: 14px;
                     padding: 1.2em;
                     margin-top: 0.4em;
-                    min-height: 100vh;
 
 
                     .wrapper {
-                        width: 450px;
+                        width: 320px;
                         background: #fff;
                         border-radius: 10px;
 
@@ -697,7 +695,7 @@ section.navigation {
 
                             .current-date {
                                 line-height: 0;
-                                font-size: 1.45rem;
+                                font-size: 1.2rem;
                                 font-weight: 500;
                             }
 
@@ -742,6 +740,7 @@ section.navigation {
                                 padding-left: 20px;
 
                                 li {
+                                    font-size: 0.8em;
                                     position: relative;
                                     width: calc(100% / 7);
                                 }
@@ -770,6 +769,8 @@ section.navigation {
                                 }
 
                                 li {
+                                    
+                                
                                     z-index: 1;
                                     cursor: pointer;
                                     margin-top: 30px;  
@@ -793,134 +794,92 @@ section.navigation {
                                             background: #f2f2f2;
                                         }
                                     }
+
+                                    /*Time Slot Table CSS*/
+
+                                    &.available {
+                                        cursor: pointer;
+                                    }
+
+                                    &.unavailable {
+                                        cursor: default;
+                                        pointer-events: none;
+                                    }
+
+                                    &.inactive {
+                                        cursor: default;
+                                        pointer-events: none;
+                                    }
+
+                                    &.selected {
+                                        color: var(--green-dark) !important;
+                                        font-weight: 600;
+
+                                        &::before {
+                                            background: var(--yellow) !important;
+                                        }
+                                    }
+
+
                                 }
                             }
                         }
                     }
-            
-                    /*
-                    .calendar-nav {
-                        display: flex;
-                        justify-content: space-between;
-                        align-items: center;
-                        margin-bottom: 1em;
-                        color: var(--off-white);
-                        font-weight: 500;
 
-                        button {
-                            background: none;
-                            border: 1px solid rgba(255,255,255,0.1);
-                            border-radius: 8px;
+                    .time-slot-panel {
+                        margin-left: 1em;
+                        border-top: 1px solid rgba(255, 255, 255, 0.1);
+                        padding-top: 1em;
+
+                        .slot-date-label {
                             color: var(--off-white);
-                            width: 28px; height: 28px;
-                            cursor: pointer;
-                            font-size: 1.1em;
-                            transition: background 0.2s ease;
-
-                            &:hover { background: rgba(255,255,255,0.08); }
+                            font-weight: 500;
+                            margin: 0 0 0.2em;
                         }
-                    }
 
-                    .calendar-weekdays {
-                        display: grid;
-                        grid-template-columns: repeat(7, 1fr);
-                        text-align: center;
-                        font-size: 0.72em;
-                        color: var(--text-muted);
-                        letter-spacing: 0.5px;
-                        margin-bottom: 0.5em;
-                    }
+                        .slot-subtitle {
+                            font-size: 0.72em;
+                            color: var(--text-muted);
+                            text-transform: uppercase;
+                            letter-spacing: 1px;
+                            margin: 0 0 0.8em;
+                        }
 
-                    .calendar-days {
-                        display: grid;
-                        grid-template-columns: repeat(7, 1fr);
-                        gap: 3px;
+                        .slot-grid {
+                            display: grid;
+                            grid-template-columns: repeat(3, 1fr);
+                            gap: 0.5em;
 
-                        .day {
-                            aspect-ratio: 1;
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            border-radius: 8px;
-                            font-size: 0.85em;
-                            cursor: default;
-
-                            &.available {
+                            .time-slot {
+                                background: rgba(61, 122, 82, 0.3);
+                                border: 1px solid rgba(255, 255, 255, 0.1);
+                                border-radius: 8px;
                                 color: var(--off-white);
+                                padding: 0.6em;
+                                font-size: 0.85em;
                                 cursor: pointer;
-                                transition: background 0.15s ease;
+                                font-family: var(--font-body);
+                                transition: background 0.2s ease, border-color 0.2s ease;
 
-                                &:hover { background: rgba(212, 232, 64, 0.15); }
-                            }
+                                &:hover {
+                                    background: rgba(212, 232, 64, 0.15);
+                                    border-color: rgba(212, 232, 64, 0.3);
+                                }
 
-                            &.unavailable, &.past {
-                                color: var(--text-muted);
-                                opacity: 0.35;
-                            }
-
-                            &.selected {
-                                background: var(--yellow);
-                                color: var(--green-dark);
-                                font-weight: 600;
-                            }
-                        }
-                    }
-
-                    .time-view-header {
-                        display: flex;
-                        align-items: center;
-                        gap: 1em;
-                        margin-bottom: 0.4em;
-                        color: var(--off-white);
-                        font-weight: 500;
-
-                        button {
-                            background: none;
-                            border: none;
-                            color: var(--yellow);
-                            cursor: pointer;
-                            font-size: 1em;
-                            padding: 0;
-                        }
-                    }
-
-                    .time-view-subtitle {
-                        font-size: 0.75em;
-                        color: var(--text-muted);
-                        letter-spacing: 1px;
-                        text-transform: uppercase;
-                        margin-bottom: 0.8em;
-                    }
-
-                    .time-slots {
-                        display: grid;
-                        grid-template-columns: repeat(3, 1fr);
-                        gap: 0.5em;
-
-                        .time-slot {
-                            background: rgba(61, 122, 82, 0.3);
-                            border: 1px solid rgba(255, 255, 255, 0.1);
-                            border-radius: 8px;
-                            color: var(--off-white);
-                            padding: 0.6em;
-                            font-size: 0.85em;
-                            cursor: pointer;
-                            font-family: var(--font-body);
-                            transition: background 0.2s ease, border-color 0.2s ease;
-
-                            &:hover {
-                                background: rgba(212, 232, 64, 0.15);
-                                border-color: rgba(212, 232, 64, 0.3);
-                            }
-
-                            &.active {
-                                background: var(--yellow);
-                                color: var(--green-dark);
-                                border-color: var(--yellow);
-                                font-weight: 600;
+                                &.active {
+                                    background: var(--yellow);
+                                    color: var(--green-dark);
+                                    border-color: var(--yellow);
+                                    font-weight: 500;
+                                }
                             }
                         }
-                    }*/
+
+
+                    }
+
+
+
                 }
             }
         }
