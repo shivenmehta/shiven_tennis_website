@@ -126,7 +126,7 @@ function showTimeSlots(date) {
     let buttons = "";
 
     slots.forEach(slot => {
-        buttons += `<button class = "time-slot" onclick = "pickTime('${slot}', this)">${slot}</button>`;
+        buttons += `<button class = "time-slot" onclick = "pickTime('${slot}', this, '${dateStr}')">${slot}</button>`;
     })
 
     document.getElementById("time-slot-panel").innerHTML = `
@@ -142,7 +142,7 @@ function showTimeSlots(date) {
     
 }
 
-function pickTime(time, button) {
+function pickTime(time, button, dateStr) {
 
     const allSlots = document.querySelectorAll(".time-slot");
     allSlots.forEach(slot => {
@@ -150,11 +150,11 @@ function pickTime(time, button) {
     })
     button.classList.add("active");
 
-    const dateStr = date.toLocaleDateString('default', {
+    /*const dateStr = date.toLocaleDateString('default', {
         weekday: 'short',
         month: 'short',
         day: 'numeric'
-    })
+    })*/
 
     const full = `${dateStr} at ${time}`;
     document.getElementById("datetime-label").textContent = full; // datetime-label is the text in the selection square
@@ -162,8 +162,55 @@ function pickTime(time, button) {
 
 }
 
+//Function for toggling calendar on and off when datetime selector is clicked
 function toggleCalendar() {
         const popup = document.getElementById('calendar-popup');
         const isOpen = popup.style.display === 'flex';
         popup.style.display = isOpen ? 'none' : 'flex';
 }
+
+//API request for form submission
+document.querySelector(".submit-btn").addEventListener('click', async () => {
+    const data = {
+        firstName: document.getElementById("first-name").value,
+        lastName: document.getElementById("last-name").value,
+        email: document.getElementById("email").value,
+        phone: document.getElementById("phone").value,
+        datetime: document.getElementById("selected-datetime").value,
+        skillLevel: document.getElementById("skill-level").value,
+        notes: document.getElementById("notes").value
+    }
+
+    const response = await fetch("http://localhost:3000/bookings", {
+        method: "POST", //We are putting data into the database, so we use POST
+        headers: {'Content-Type': 'application/json'}, //Tells backend that we are sending data in JSON formatting
+        body: JSON.stringify(data) //Turns our data array into a JSON formatting
+    })
+
+    const result = await response.json();
+
+    if (result.success) {
+        alert("Booking Confirmed");
+        document.getElementById("first-name").value = "";
+        document.getElementById("last-name").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("phone").value = "";
+        document.getElementById("skill-level").value = "";
+        document.getElementById("notes").value = "";
+        document.getElementById("calendar-popup").style.display = "none";
+
+        //Remove selected tags from all other day "li" tags
+        const dayTag = document.querySelectorAll(".days li");
+        dayTag.forEach(day => {
+            day.classList.remove("selected");
+        })
+
+        //Remove the previous datetime selected by the booking that just occurred
+        document.getElementById("selected-datetime").value = "";
+        document.getElementById("datetime-label").textContent = "";
+
+    } else {
+        alert("Something went wront, please try again later!");
+    }
+
+})
