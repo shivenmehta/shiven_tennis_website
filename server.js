@@ -8,11 +8,11 @@ app.use(express.json()); //Let express read JSON requests
 
 //Connect to PostgreSQL Database
 const pool = new Pool({
-    user: 'postgres',
-    host: 'localhost',
-    database: 'tennis_bookings',
-    password: 'Columbia429',
-    port: 5432
+    user: process.env.PGUSER,
+    host: process.env.PGHOST,
+    database: process.env.PGDATABASE,
+    password: process.env.PGPASSWORD,
+    port: process.env.PGPORT
 });
 
 app.post('/bookings', async (req, res) => {
