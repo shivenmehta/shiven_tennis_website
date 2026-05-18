@@ -3,7 +3,9 @@ const {Pool} = require('pg');
 const cors = require('cors');
 
 const app = express();
-app.use(cors());
+app.use(cors({
+    origin: 'https://shiventenniswebsite-production.up.railway.app'
+}));
 app.use(express.json()); //Let express read JSON requests
 
 //Connect to PostgreSQL Database

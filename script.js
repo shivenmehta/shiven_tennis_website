@@ -181,7 +181,7 @@ document.querySelector(".submit-btn").addEventListener('click', async () => {
         notes: document.getElementById("notes").value
     }
 
-    const response = await fetch("http://localhost:3000/bookings", {
+    const response = await fetch("https://shiventenniswebsite-production.up.railway.app/bookings", {
         method: "POST", //We are putting data into the database, so we use POST
         headers: {'Content-Type': 'application/json'}, //Tells backend that we are sending data in JSON formatting
         body: JSON.stringify(data) //Turns our data array into a JSON formatting
