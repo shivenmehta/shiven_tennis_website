@@ -4,7 +4,7 @@ const cors = require('cors');
 
 const app = express();
 app.use(cors({
-    origin: 'https://shiventenniswebsite-production.up.railway.app'
+    origin: 'https://shiventenniswebsite.netlify.app'
 }));
 app.use(express.json()); //Let express read JSON requests
 
