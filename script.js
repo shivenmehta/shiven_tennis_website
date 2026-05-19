@@ -150,12 +150,6 @@ function pickTime(time, button, dateStr) {
     })
     button.classList.add("active");
 
-    /*const dateStr = date.toLocaleDateString('default', {
-        weekday: 'short',
-        month: 'short',
-        day: 'numeric'
-    })*/
-
     const full = `${dateStr} at ${time}`;
     document.getElementById("datetime-label").textContent = full; // datetime-label is the text in the selection square
     document.getElementById("selected-datetime").value = full; //Set hidden input selected-datetime's value to the selected date
@@ -210,7 +204,7 @@ document.querySelector(".submit-btn").addEventListener('click', async () => {
         document.getElementById("datetime-label").textContent = "";
 
     } else {
-        alert("Something went wront, please try again later!");
+        alert("Something went wrong, please try again later!");
     }
 
 })
