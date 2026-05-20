@@ -38,7 +38,9 @@ function buildCalendarLink() {
     const location = encodeURIComponent(`Sunnyvale Tennis Center, Sunnyvale, CA`);
 
     // Google Calendar URL format
+    console.log(`https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&details=${details}&location=${location}`);
     return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&details=${details}&location=${location}`;
+    
 }
 
 
@@ -62,32 +64,32 @@ app.post('/bookings', async (req, res) => {
         //Send Email to User using transporter
         try {
             await transporter.sendMail({
-            from: `"Shiven Mehta Tennis" <${process.env.GMAIL_USER}>`,
-            to: [email, process.env.GMAIL_USER],
-            subject: `Booking Confirmed - ${datetime}`,
-            html: `
-                <div style="font-family: sans-serif; max-width: 500px; margin: 0 auto;">
-                    <h2>You're booked, ${firstName}! 🎾</h2>
-                    <p>Your tennis session with Shiven has been confirmed.</p>
-                    
-                    <div style="background: #f5f5f5; padding: 1em; border-radius: 8px; margin: 1.5em 0;">
-                        <strong>📅 Date & Time:</strong> ${datetime}<br>
-                        <strong>📍 Location:</strong> Sunnyvale, CA<br>
-                        <strong>🎾 Level:</strong> ${skillLevel}
+                from: `"Shiven Mehta Tennis" <${process.env.GMAIL_USER}>`,
+                to: [email, process.env.GMAIL_USER],
+                subject: `Booking Confirmed - ${datetime}`,
+                html: `
+                    <div style="font-family: sans-serif; max-width: 500px; margin: 0 auto;">
+                        <h2>You're booked, ${firstName}! 🎾</h2>
+                        <p>Your tennis session with Shiven has been confirmed.</p>
+                        
+                        <div style="background: #f5f5f5; padding: 1em; border-radius: 8px; margin: 1.5em 0;">
+                            <strong>📅 Date & Time:</strong> ${datetime}<br>
+                            <strong>📍 Location:</strong> Sunnyvale, CA<br>
+                            <strong>🎾 Level:</strong> ${skillLevel}
+                        </div>
+
+                        <a href="${calendarLink}" 
+                        style="display: inline-block; background: #d4e840; color: #1a3a2a; 
+                                padding: 0.8em 1.5em; border-radius: 25px; text-decoration: none; 
+                                font-weight: 600;">
+                            Add to Google Calendar →
+                        </a>
+
+                        <p style="margin-top: 2em; color: #888; font-size: 0.85em;">
+                            Questions? Reply to this email or visit shiventenniswebsite.netlify.app
+                        </p>
                     </div>
-
-                    <a href="${calendarLink}" 
-                       style="display: inline-block; background: #d4e840; color: #1a3a2a; 
-                              padding: 0.8em 1.5em; border-radius: 25px; text-decoration: none; 
-                              font-weight: 600;">
-                        Add to Google Calendar →
-                    </a>
-
-                    <p style="margin-top: 2em; color: #888; font-size: 0.85em;">
-                        Questions? Reply to this email or visit shiventenniswebsite.netlify.app
-                    </p>
-                </div>
-            `
+                `
             });
             console.log('Email sent succesfully');
         } catch (emailError) {
