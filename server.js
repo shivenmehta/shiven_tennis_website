@@ -60,7 +60,8 @@ app.post('/bookings', async (req, res) => {
 
 
         //Send Email to User using transporter
-        await transporter.sendMail({
+        try {
+            await transporter.sendMail({
             from: `"Shiven Mehta Tennis" <${process.env.GMAIL_USER}>`,
             to: [email, process.env.GMAIL_USER],
             subject: `Booking Confirmed - ${datetime}`,
@@ -87,7 +88,12 @@ app.post('/bookings', async (req, res) => {
                     </p>
                 </div>
             `
-        });
+            });
+            console.log('Email sent succesfully');
+        } catch (emailError) {
+            console.error('Email error: ', emailError.message);
+        }
+        
 
         res.json({success: true, message: 'Booking Saved'});
         
