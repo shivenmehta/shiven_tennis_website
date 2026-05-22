@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cancel Booking</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <section class="navigation">
+        <div class="container">
+            <div class="nav-header">
+                <div class="tennis-ball-icon">🎾</div>
+                <a class="name" href="index.html">Shiven Mehta</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- HTML for Cancelation Page-->
+    <main class="content">
+        <section class="cancel-page">
+            <div class="cancel-block" id="cancel-block">
+
+                <!-- Loading state -->
+                <p class="cancel-loading" id="cancel-loading">Loading your booking...</p>
+
+                <!-- Booking details — hidden until loaded -->
+                <div class="cancel-details" id="cancel-details" style="display:none;">
+                    <p class="cancel-eyebrow">Cancel Booking</p>
+                    <h1 class="cancel-heading">Are you sure?</h1>
+                    <p class="cancel-subheading">You're about to cancel the following session:</p>
+
+                    <div class="cancel-card">
+                        <p><strong>📅 Date & Time:</strong> <span id="c-datetime"></span></p>
+                        <p><strong>👤 Name:</strong> <span id="c-name"></span></p>
+                        <p><strong>🎾 Skill Level:</strong> <span id="c-skill"></span></p>
+                    </div>
+
+                    <p class="cancel-warning">⚠️ This cannot be undone.</p>
+
+                    <div class="cancel-actions">
+                        <button class="cancel-confirm-btn" id="cancel-confirm-btn">
+                            Yes, Cancel My Booking
+                        </button>
+                        <a class="cancel-keep-btn" href="index.html">
+                            Keep My Booking
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Success state — shown after cancellation -->
+                <div class="cancel-success" id="cancel-success" style="display:none;">
+                    <h1 class="cancel-heading">Booking Cancelled</h1>
+                    <p>Your session has been cancelled. Hope to see you on the court soon!</p>
+                    <a class="action-tag primary" href="bookings.html">Book Again →</a>
+                </div>
+
+                <!-- Error state -->
+                <div class="cancel-error" id="cancel-error" style="display:none;">
+                    <h1 class="cancel-heading">Something went wrong</h1>
+                    <p>We couldn't find your booking. It may have already been cancelled.</p>
+                    <a class="action-tag primary" href="index.html">Go Home →</a>
+                </div>
+
+                <div class="cancel-error" id="cancel-error" style="display:none;">
+                    <p class="cancel-eyebrow">Oops</p>
+                    <h1 class="cancel-heading" id="error-heading">Something Went Wrong</h1>
+                    <p class="cancel-subheading" id="error-message">An unexpected error occurred.</p>
+                    <a class="cancel-keep-btn" href="index.html">Go Home →</a>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <script src="cancel.js"></script>
+</body>
+</html>

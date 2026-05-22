@@ -95,6 +95,7 @@ section.navigation .container .nav-header .page-headings .page-name:hover {
   /* About Me Section on First Page */
   /*Getting Started Styling on First Page */
   /* Bookings' Page Styling on Bookings Page* - Good*/
+  /* Cancelation Page Styling */
 }
 
 .content section.home-page {
@@ -848,5 +849,150 @@ section.navigation .container .nav-header .page-headings .page-name:hover {
   color: var(--yellow);
   font-weight: 500;
   margin-bottom: 0.8em;
+}
+
+.content section.cancel-page {
+  min-height: 100vh;
+  display: flex;
+  padding: 4em;
+}
+
+.content section.cancel-page .cancel-block {
+  max-width: 500px;
+  width: 100%;
+  /*
+            .cancel-success {
+                text-align: center;
+
+                .cancel-heading { color: var(--yellow); }
+
+                p {
+                    color: var(--off-white);
+                    opacity: 0.7;
+                    margin-bottom: 2em;
+                }
+            }
+
+            .cancel-error {
+                text-align: center;
+
+                &.already-cancelled .cancel-heading { 
+                    color: #ff9944;  // orange for already cancelled
+                }
+
+                &.not-found .cancel-heading,
+                &.server-error .cancel-heading { 
+                    color: #ff4444;  // red for actual errors
+                }
+
+                p {
+                    color: var(--off-white);
+                    opacity: 0.7;
+                    margin-bottom: 2em;
+                }
+            }*/
+}
+
+.content section.cancel-page .cancel-block .cancel-eyebrow {
+  font-size: 0.75em;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--yellow);
+  font-weight: 500;
+  margin-bottom: 0.5em;
+}
+
+.content section.cancel-page .cancel-block .cancel-heading {
+  font-family: var(--font-heading);
+  font-size: 4em;
+  color: var(--off-white);
+  line-height: 1;
+  margin: 0 0 0.3em;
+}
+
+.content section.cancel-page .cancel-block .cancel-subheading {
+  color: var(--off-white);
+  opacity: 0.7;
+  margin-bottom: 1.5em;
+}
+
+.content section.cancel-page .cancel-block .cancel-card {
+  background: rgba(61, 122, 82, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  padding: 1.5em;
+  color: var(--off-white);
+  line-height: 2;
+  margin-bottom: 1.5em;
+}
+
+.content section.cancel-page .cancel-block .cancel-warning {
+  color: #ff6b6b;
+  font-size: 0.9em;
+  margin-bottom: 2em;
+}
+
+.content section.cancel-page .cancel-block .cancel-actions {
+  display: flex;
+  gap: 1em;
+  flex-wrap: wrap;
+}
+
+.content section.cancel-page .cancel-block .cancel-confirm-btn {
+  background: #ff4444;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 1em 2em;
+  font-family: var(--font-body);
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.content section.cancel-page .cancel-block .cancel-confirm-btn:hover {
+  background: #cc0000;
+  transform: translateY(-3px);
+}
+
+.content section.cancel-page .cancel-block .cancel-keep-btn {
+  display: inline-block;
+  background: white;
+  color: #0b0b0b;
+  border-radius: 25px;
+  padding: 1em 2em;
+  text-decoration: none;
+  font-weight: 500;
+  transition: transform 0.2s ease;
+}
+
+.content section.cancel-page .cancel-block .cancel-keep-btn:hover {
+  transform: translateY(-3px);
+}
+
+.content section.cancel-page .cancel-block .cancel-success, .content section.cancel-page .cancel-block .cancel-error {
+  text-align: center;
+}
+
+.content section.cancel-page .cancel-block .cancel-success .action-tag, .content section.cancel-page .cancel-block .cancel-error .action-tag {
+  display: inline-block;
+  background: white;
+  color: #0b0b0b;
+  border-radius: 25px;
+  padding: 1em 2em;
+  text-decoration: none;
+  font-weight: 500;
+  transition: transform 0.2s ease;
+}
+
+.content section.cancel-page .cancel-block .cancel-success .action-tag:hover, .content section.cancel-page .cancel-block .cancel-error .action-tag:hover {
+  transform: translateY(-3px);
+}
+
+.content section.cancel-page .cancel-block .cancel-success p, .content section.cancel-page .cancel-block .cancel-error p {
+  color: var(--off-white);
+  opacity: 0.7;
+  margin-bottom: 2em;
 }
 /*# sourceMappingURL=main.css.map */
