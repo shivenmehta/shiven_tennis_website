@@ -4,7 +4,8 @@ const currentDate = document.querySelector(".current-date"); //Query the div tha
 const daysTag = document.querySelector(".days"); //Query the div that has the class days: "ul" element for all the days
 const prevNextIcon = document.querySelectorAll(".icons span"); //Select all icons within the icons class that have the span tag
 
-
+//Assign API_URL based on where we are hosting website from
+const API_URL = window.location.hostname === 'localhost' ? 'http://localhost:3000' : 'https://shiventenniswebsite-production.up.railway.app';
 
 // Getting new date, current year, and month
 let date = new Date(), //Creating date object and store in variable date
@@ -27,8 +28,17 @@ const availability = {
     6: ['4:00 PM', '5:00 PM', '6:00 PM'], //Saturday
 }
 
-// Test console.log for current date, year, and month
-/*console.log(date, currYear, currMonth);*/
+let bookedSlots = [];
+
+async function loadBookedSlots() {
+    try {
+        const response = await fetch (`${API_URL}/booked-slots`);
+        bookedSlots = await response.json();
+    } catch (err) {
+        console.error('Could not load booked time slots: ', err);
+    }
+}
+
 
 const renderCalendar = () => { //Function in JS
     let firstDayofMonth = new Date(currYear, currMonth, 1).getDay(); //Getting first day of month
@@ -73,7 +83,12 @@ const renderCalendar = () => { //Function in JS
     currentDate.innerText = `${months[currMonth]} ${currYear}`; 
 }
 
-renderCalendar();
+async function init() {
+    await loadBookedSlots();
+    renderCalendar();
+}
+
+init();
 
 prevNextIcon.forEach(icon => {
     icon.addEventListener("click", () => { //Adding click event on both icons
@@ -115,6 +130,7 @@ daysTag.addEventListener("click", (e) => {
 
 });
 
+//Function to show all the time slots for a day
 function showTimeSlots(date) {
     const slots = availability[date.getDay()]; //Get the slots list
     const dateStr = date.toLocaleDateString('default', 
@@ -126,7 +142,17 @@ function showTimeSlots(date) {
     let buttons = "";
 
     slots.forEach(slot => {
-        buttons += `<button class = "time-slot" onclick = "pickTime('${slot}', this, '${dateStr}')">${slot}</button>`;
+        const fullSlot = `${dateStr} at ${slot}`
+        const isBooked = bookedSlots.includes(fullSlot);
+
+        if (isBooked) {
+            //Show as unavailable, not clickable
+            buttons += `<button class = "time-slot booked" disabled>${slot}</button>`
+        } else {
+            buttons += `<button class = "time-slot" onclick = "pickTime('${slot}', this, '${dateStr}')">${slot}</button>`;
+        }
+
+        
     })
 
     document.getElementById("time-slot-panel").innerHTML = `
@@ -174,11 +200,6 @@ document.querySelector(".submit-btn").addEventListener('click', async () => {
         skillLevel: document.getElementById("skill-level").value,
         notes: document.getElementById("notes").value
     }
-
-    //Check if fetch request is local or from cloud backend server
-    const API_URL = window.location.hostname === 'localhost' 
-    ? 'http://localhost:3000' 
-    : 'https://shiventenniswebsite-production.up.railway.app';
 
     const response = await fetch(`${API_URL}/bookings`, {
         method: "POST", //We are putting data into the database, so we use POST

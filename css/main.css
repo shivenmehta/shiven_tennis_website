@@ -842,6 +842,15 @@ section.navigation .container .nav-header .page-headings .page-name:hover {
   font-weight: 500;
 }
 
+.content section.bookings .bookings-main .bookings-form-block .calendar-popup .time-slot-panel .slot-grid .time-slot.booked {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: var(--text-muted);
+  opacity: 0.5;
+  cursor: not-allowed;
+  text-decoration: line-through;
+}
+
 .content section.bookings .section-label {
   font-size: 0.75em;
   letter-spacing: 3px;

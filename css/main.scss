@@ -872,6 +872,15 @@ section.navigation {
                                     border-color: var(--yellow);
                                     font-weight: 500;
                                 }
+
+                                &.booked {
+                                    background: rgba(255, 255, 255, 0.04);
+                                    border: 1px solid rgba(255, 255, 255, 0.06);
+                                    color: var(--text-muted);
+                                    opacity: 0.5;
+                                    cursor: not-allowed;
+                                    text-decoration: line-through;
+                                }
                             }
                         }
 

@@ -54,7 +54,7 @@ function buildCalendarLink(datetime) {
 }
 
 
-
+//Fetch Request for adding all information to bookings SQL table
 app.post('/bookings', async (req, res) => {
     const {firstName, lastName, email, phone, datetime, skillLevel, notes} = req.body;
 
@@ -127,6 +127,16 @@ app.post('/bookings', async (req, res) => {
     }
 
 });
+
+//Fetch request for checking available time slots - return all datetime options
+app.get('/booked-slots', async (req, res) => {
+    try {
+        const result = await pool.query(`SELECT * FROM bookings WHERE status != 'cancelled'`);
+        res.json(result.rows.map(row => row.datetime));
+    } catch (err) {
+        res.status(500).json({error: err.message});
+    }
+})
 
 //Fetch request for cancelling a tennis session
 app.post('/cancel', async (req,res) => {
