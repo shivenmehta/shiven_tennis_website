@@ -5,7 +5,7 @@ const daysTag = document.querySelector(".days"); //Query the div that has the cl
 const prevNextIcon = document.querySelectorAll(".icons span"); //Select all icons within the icons class that have the span tag
 
 //Assign API_URL based on where we are hosting website from
-const API_URL = window.location.hostname === 'localhost' ? 'http://localhost:3000' : 'https://shiventenniswebsite-production.up.railway.app';
+const API_URL = window.location.hostname === 'localhost' ? 'http://localhost:3000' : 'https://shiven-tennis-website-355e82df78df.herokuapp.com';
 
 // Getting new date, current year, and month
 let date = new Date(), //Creating date object and store in variable date
