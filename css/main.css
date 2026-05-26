@@ -1032,17 +1032,24 @@ section.navigation .container .nav-header .page-headings .page-name:hover {
 /* Mobile CSS - Too Lazy to fix myself so just asked Claude lol*/
 @media (max-width: 768px) {
   /* Nav */
+  section.navigation .container {
+    padding: 0em 1em 0em 1.5em;
+  }
   section.navigation .container .nav-header {
     font-size: 1em;
   }
   section.navigation .container .nav-header .tennis-ball-icon {
     margin-left: 0.5em;
   }
+  section.navigation .container .nav-header .name {
+    font-size: 1em;
+  }
   section.navigation .container .nav-header .page-headings {
+    margin-left: 1em;
     gap: 1em;
   }
   section.navigation .container .nav-header .page-headings .page-name {
-    font-size: 0.9em;
+    font-size: 0.85em;
   }
   .content {
     /* Home Page */

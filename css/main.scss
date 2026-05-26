@@ -1082,16 +1082,26 @@ section.navigation {
 @media (max-width: 768px) {
 
     /* Nav */
-    section.navigation .container .nav-header {
-        font-size: 1em;
+    section.navigation {
+        .container {
+            padding: 0em 1em 0em 1.5em; 
+            .nav-header {
+                font-size: 1em;
 
-        .tennis-ball-icon { margin-left: 0.5em; }
+                .tennis-ball-icon { margin-left: 0.5em; }
 
-        .page-headings { 
-            gap: 1em; 
-            .page-name { font-size: 0.9em; }
+                .name {
+                    font-size: 1em;
+                }
+
+                .page-headings { 
+                    margin-left: 1em;
+                    gap: 1em; 
+                    .page-name { font-size: 0.85em; }
+                }
+            }
         }
-    }
+    } 
 
     .content {
         /* Home Page */
