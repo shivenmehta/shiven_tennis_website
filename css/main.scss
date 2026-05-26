@@ -106,8 +106,8 @@ section.navigation {
     section.home-page {
 
         display: flex;
-        height: 700px;
-        margin-top: 11em;
+        min-height: 700px;
+        margin-top: 7em;
         border-bottom: 1px solid rgba(255, 255, 255, 0.12);  /* subtler than solid lightgreen */
 
         /*Left Side of the Home Page - Text Portion */
@@ -147,7 +147,8 @@ section.navigation {
 
             .welcome-description {
                 font-size: 1.1em;
-                width: 470px;
+                max-width: 470px;
+                width: 100%;
                 line-height: 1.3em;
                 margin-bottom: 2em;
 
@@ -285,7 +286,7 @@ section.navigation {
 
     /* About Me Section on First Page */
     section.about-me-page {
-       height: 500px;
+       min-height: 500px;
        background: rgba(61, 122, 82, 0.4);
        display: flex;
        border-bottom: 1px solid rgba(255, 255, 255, 0.12);  /* subtler than solid lightgreen */
@@ -312,7 +313,8 @@ section.navigation {
                 color: var(--off-white);
                 font-size: 1em;
                 opacity: 0.8;
-                width: 475px;
+                max-width: 475px;
+                width: 100%;
                 line-height: 1.5em;
             }
 
@@ -320,7 +322,8 @@ section.navigation {
                 margin-top: 3em;
                 display: flex;
                 flex-wrap: wrap;
-                width: 500px;
+                max-width: 500px;
+                width: 100%;
                 gap: 1em;
                 
                 
@@ -374,7 +377,7 @@ section.navigation {
 
     /*Getting Started Styling on First Page */
     section.getting-started-page {
-        height: 900px;
+        min-height: 900px;
         display: flex;
         flex-direction: column;
 
@@ -469,7 +472,8 @@ section.navigation {
             border-radius: 15px;
 
             background: var(--yellow);
-            width: 1000px;
+            max-width: 1000px;
+            width: 100%;
             
 
             .ready-heading {
@@ -538,7 +542,8 @@ section.navigation {
 
         .bookings-main {
             display: flex;
-            width: 750px;
+            max-width: 750px;
+            width: 100%;
             gap: 3em;
             align-items: flex-start;
 
@@ -1072,7 +1077,7 @@ section.navigation {
 
 }
 
-/* Mobile CSS */
+/* Mobile CSS - Too Lazy to fix myself so just asked Claude lol*/
 
 @media (max-width: 768px) {
 
@@ -1080,91 +1085,150 @@ section.navigation {
     section.navigation .container .nav-header {
         font-size: 1em;
 
-        .page-headings {
-            gap: 1em;
-        }
+        .tennis-ball-icon { margin-left: 0.5em; }
+
+        .page-headings { gap: 1em; }
+
+        .page-name { font-size: 0.85em; }
     }
 
-    /* Home Page */
-    section.home-page {
-        flex-direction: column;  /* stacks left and right side */
-        height: auto;
-        margin-top: 4em;
-        padding-bottom: 3em;
+    .content {
+        /* Home Page */
+        section.home-page {
+            flex-direction: column;
+            height: auto;
+            margin-top: 4em;
+            padding-bottom: 3em;
+            overflow: hidden;
 
-        .home-block {
-            margin-left: 1.5em;
-            margin-right: 1.5em;
+            .home-block {
+                margin-left: 1.5em;
+                margin-right: 1.5em;
 
-            .welcome-greeting { font-size: 5em; }
-            .welcome-description { width: 100%; }
-            .action-tags { flex-direction: column; }
-        }
+                .welcome-greeting { font-size: 5em; }
+                .welcome-greeting { font-size: 4em; }
 
-        .home-page-cards {
-            margin: 2em 1.5em 0;
-            align-items: flex-start;
-            flex-direction: row;  /* cards side by side on mobile */
-            flex-wrap: wrap;
-        }
-    }
+                .welcome-tagline { font-size: 1.1em; }
 
-    /* About Me */
-    section.about-me-page {
-        flex-direction: column;
-        height: auto;
-        padding-bottom: 3em;
+                .welcome-description {
+                    width: 100%;
+                    font-size: 0.95em;
+                }
 
-        .about-me-block {
-            margin-left: 1.5em;
-            margin-right: 1.5em;
+                .action-tags {
+                    flex-direction: column;
+                    gap: 1em;
+                    margin-top: 2em;
 
-            .about-me-description { width: 100%; }
-            .about-me-tags { width: 100%; }
-        }
+                    .action-tag { text-align: center; }
+                }
+            }
 
-        .about-me-picture {
-            margin: 2em 0 0 1.5em;
+            .home-page-cards {
+                margin: 3em 1.5em 0;
+                align-items: right;
+                flex-direction: column;
+                width: calc(100% - 3em);
+                gap: 1.5em;
 
-            img {
-                width: 200px;
-                height: 200px;
+                .stat-card {
+                    width: 130px;
+                    padding: 0.8em 1em;
+
+                    .stat { font-size: 2.5em; }
+                }
+
+                .location-card {
+                    width: 80%;
+                }
             }
         }
-    }
 
-    /* Getting Started */
-    section.getting-started-page {
-        height: auto;
-
-        .getting-started-cards {
+        /* About Me */
+        section.about-me-page {
             flex-direction: column;
-            align-items: center;
+            height: auto;
+            padding-bottom: 3em;
+
+            .about-me-block {
+                margin-left: 1.5em;
+                margin-right: 1.5em;
+
+                .about-me-description { width: 100%; }
+
+                .about-me-tags { width: 100%; }
+            }
+
+            .about-me-picture {
+                margin: 2em auto 0;
+                justify-content: center;
+
+                img {
+                    width: 220px;
+                    height: 220px;
+                }
+            }
         }
 
-        .ready-card {
-            width: 90%;
-            flex-direction: column;
-            text-align: center;
-            gap: 1em;
-            padding: 2em;
+        /* Getting Started */
+        section.getting-started-page {
+            height: auto;
+            padding-bottom: 3em;
+
+            .getting-started-block {
+                .heading { font-size: 2.5em; }
+            }
+
+            .getting-started-cards {
+                flex-direction: column;
+                align-items: center;
+                padding: 0 1.5em;
+
+                .card { width: 100%; }
+            }
+
+            .ready-card {
+                width: 77%;
+                flex-direction: column;
+                text-align: center;
+                gap: 1em;
+                padding: 1.5em;
+                margin: 3em 1.5em 0;
+
+                .ready-heading { font-size: 2.5em; }
+            }
         }
-    }
 
-    /* Bookings */
-    section.bookings {
-        padding: 3em 1.5em;
+        /* Bookings */
+        section.bookings {
+            padding: 3em 1.5em;
 
-        .bookings-heading { font-size: 4em; }
+            .bookings-hero {
+                .bookings-heading { font-size: 4em; }
+            }
 
-        .bookings-main {
-            flex-direction: column;
-            width: 100%;
+            .bookings-main {
+                flex-direction: column;
+                width: 100%;
+            }
         }
-    }
 
-    /* Contact */
-    section.contact-page {
-        padding: 4em 1.5em;
+        /* Contact */
+        section.contact-page {
+            padding: 0em 1.5em;
+
+            .contact-heading { font-size: 4em; }
+        }
+
+        /* Cancel Page */
+        section.cancel-page {
+            padding: 4em 1.5em;
+
+            .cancel-heading { font-size: 3em; }
+
+            .cancel-actions { flex-direction: column; }
+        }
+
     }
+    
 }

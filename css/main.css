@@ -100,8 +100,8 @@ section.navigation .container .nav-header .page-headings .page-name:hover {
 
 .content section.home-page {
   display: flex;
-  height: 700px;
-  margin-top: 11em;
+  min-height: 700px;
+  margin-top: 7em;
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   /* subtler than solid lightgreen */
   /*Left Side of the Home Page - Text Portion */
@@ -142,7 +142,8 @@ section.navigation .container .nav-header .page-headings .page-name:hover {
 
 .content section.home-page .home-block .welcome-description {
   font-size: 1.1em;
-  width: 470px;
+  max-width: 470px;
+  width: 100%;
   line-height: 1.3em;
   margin-bottom: 2em;
 }
@@ -271,7 +272,7 @@ section.navigation .container .nav-header .page-headings .page-name:hover {
 }
 
 .content section.about-me-page {
-  height: 500px;
+  min-height: 500px;
   background: rgba(61, 122, 82, 0.4);
   display: flex;
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
@@ -301,7 +302,8 @@ section.navigation .container .nav-header .page-headings .page-name:hover {
   color: var(--off-white);
   font-size: 1em;
   opacity: 0.8;
-  width: 475px;
+  max-width: 475px;
+  width: 100%;
   line-height: 1.5em;
 }
 
@@ -309,7 +311,8 @@ section.navigation .container .nav-header .page-headings .page-name:hover {
   margin-top: 3em;
   display: flex;
   flex-wrap: wrap;
-  width: 500px;
+  max-width: 500px;
+  width: 100%;
   gap: 1em;
 }
 
@@ -356,7 +359,7 @@ section.navigation .container .nav-header .page-headings .page-name:hover {
 }
 
 .content section.getting-started-page {
-  height: 900px;
+  min-height: 900px;
   display: flex;
   flex-direction: column;
 }
@@ -442,7 +445,8 @@ section.navigation .container .nav-header .page-headings .page-name:hover {
   border: 1px solid var(--yellow);
   border-radius: 15px;
   background: var(--yellow);
-  width: 1000px;
+  max-width: 1000px;
+  width: 100%;
 }
 
 .content section.getting-started-page .ready-card .ready-heading {
@@ -513,7 +517,8 @@ section.navigation .container .nav-header .page-headings .page-name:hover {
 
 .content section.bookings .bookings-main {
   display: flex;
-  width: 750px;
+  max-width: 750px;
+  width: 100%;
   gap: 3em;
   align-items: flex-start;
 }
@@ -1024,95 +1029,151 @@ section.navigation .container .nav-header .page-headings .page-name:hover {
   margin-bottom: 2em;
 }
 
-/* Mobile CSS */
+/* Mobile CSS - Too Lazy to fix myself so just asked Claude lol*/
 @media (max-width: 768px) {
   /* Nav */
   section.navigation .container .nav-header {
     font-size: 1em;
   }
+  section.navigation .container .nav-header .tennis-ball-icon {
+    margin-left: 0.5em;
+  }
   section.navigation .container .nav-header .page-headings {
     gap: 1em;
   }
-  /* Home Page */
-  section.home-page {
+  section.navigation .container .nav-header .page-name {
+    font-size: 0.85em;
+  }
+  .content {
+    /* Home Page */
+    /* About Me */
+    /* Getting Started */
+    /* Bookings */
+    /* Contact */
+    /* Cancel Page */
+  }
+  .content section.home-page {
     flex-direction: column;
-    /* stacks left and right side */
     height: auto;
     margin-top: 4em;
     padding-bottom: 3em;
+    overflow: hidden;
   }
-  section.home-page .home-block {
+  .content section.home-page .home-block {
     margin-left: 1.5em;
     margin-right: 1.5em;
   }
-  section.home-page .home-block .welcome-greeting {
+  .content section.home-page .home-block .welcome-greeting {
     font-size: 5em;
   }
-  section.home-page .home-block .welcome-description {
+  .content section.home-page .home-block .welcome-greeting {
+    font-size: 4em;
+  }
+  .content section.home-page .home-block .welcome-tagline {
+    font-size: 1.1em;
+  }
+  .content section.home-page .home-block .welcome-description {
     width: 100%;
+    font-size: 0.95em;
   }
-  section.home-page .home-block .action-tags {
+  .content section.home-page .home-block .action-tags {
     flex-direction: column;
+    gap: 1em;
+    margin-top: 2em;
   }
-  section.home-page .home-page-cards {
-    margin: 2em 1.5em 0;
-    align-items: flex-start;
-    flex-direction: row;
-    /* cards side by side on mobile */
-    flex-wrap: wrap;
+  .content section.home-page .home-block .action-tags .action-tag {
+    text-align: center;
   }
-  /* About Me */
-  section.about-me-page {
+  .content section.home-page .home-page-cards {
+    margin: 3em 1.5em 0;
+    align-items: right;
+    flex-direction: column;
+    width: calc(100% - 3em);
+    gap: 1.5em;
+  }
+  .content section.home-page .home-page-cards .stat-card {
+    width: 130px;
+    padding: 0.8em 1em;
+  }
+  .content section.home-page .home-page-cards .stat-card .stat {
+    font-size: 2.5em;
+  }
+  .content section.home-page .home-page-cards .location-card {
+    width: 80%;
+  }
+  .content section.about-me-page {
     flex-direction: column;
     height: auto;
     padding-bottom: 3em;
   }
-  section.about-me-page .about-me-block {
+  .content section.about-me-page .about-me-block {
     margin-left: 1.5em;
     margin-right: 1.5em;
   }
-  section.about-me-page .about-me-block .about-me-description {
+  .content section.about-me-page .about-me-block .about-me-description {
     width: 100%;
   }
-  section.about-me-page .about-me-block .about-me-tags {
+  .content section.about-me-page .about-me-block .about-me-tags {
     width: 100%;
   }
-  section.about-me-page .about-me-picture {
-    margin: 2em 0 0 1.5em;
+  .content section.about-me-page .about-me-picture {
+    margin: 2em auto 0;
+    justify-content: center;
   }
-  section.about-me-page .about-me-picture img {
-    width: 200px;
-    height: 200px;
+  .content section.about-me-page .about-me-picture img {
+    width: 220px;
+    height: 220px;
   }
-  /* Getting Started */
-  section.getting-started-page {
+  .content section.getting-started-page {
     height: auto;
+    padding-bottom: 3em;
   }
-  section.getting-started-page .getting-started-cards {
+  .content section.getting-started-page .getting-started-block .heading {
+    font-size: 2.5em;
+  }
+  .content section.getting-started-page .getting-started-cards {
     flex-direction: column;
     align-items: center;
+    padding: 0 1.5em;
   }
-  section.getting-started-page .ready-card {
-    width: 90%;
+  .content section.getting-started-page .getting-started-cards .card {
+    width: 100%;
+  }
+  .content section.getting-started-page .ready-card {
+    width: 77%;
     flex-direction: column;
     text-align: center;
     gap: 1em;
-    padding: 2em;
+    padding: 1.5em;
+    margin: 3em 1.5em 0;
   }
-  /* Bookings */
-  section.bookings {
+  .content section.getting-started-page .ready-card .ready-heading {
+    font-size: 2.5em;
+  }
+  .content section.bookings {
     padding: 3em 1.5em;
   }
-  section.bookings .bookings-heading {
+  .content section.bookings .bookings-hero .bookings-heading {
     font-size: 4em;
   }
-  section.bookings .bookings-main {
+  .content section.bookings .bookings-main {
     flex-direction: column;
     width: 100%;
   }
-  /* Contact */
-  section.contact-page {
+  .content section.contact-page {
+    padding: 0em 1.5em;
+  }
+  .content section.contact-page .contact-heading {
+    font-size: 4em;
+  }
+  .content section.cancel-page {
     padding: 4em 1.5em;
+  }
+  .content section.cancel-page .cancel-heading {
+    font-size: 3em;
+  }
+  .content section.cancel-page .cancel-actions {
+    flex-direction: column;
   }
 }
 /*# sourceMappingURL=main.css.map */
