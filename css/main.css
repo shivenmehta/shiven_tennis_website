@@ -1166,6 +1166,9 @@ section.navigation .container .nav-header .page-headings .page-name:hover {
     width: 100%;
     /* First Name/Last Name fields fixed column wise */
   }
+  .content section.bookings .bookings-main .bookings-form-block .bookings-form {
+    padding: 1em;
+  }
   .content section.bookings .bookings-main .bookings-form-block .bookings-form .form-row {
     flex-direction: column;
   }

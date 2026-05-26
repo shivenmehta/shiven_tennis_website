@@ -1216,8 +1216,9 @@ section.navigation {
                 .bookings-form-block {
                     width: 100%;
 
-                    /* First Name/Last Name fields fixed column wise */
+                    /* First Name/Last Name fields fixed column wise */ 
                     .bookings-form {
+                        padding: 1em;
                         .form-row {
                             flex-direction: column;
                         }
