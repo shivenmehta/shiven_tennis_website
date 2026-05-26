@@ -875,6 +875,14 @@ section.navigation .container .nav-header .page-headings .page-name:hover {
   text-decoration: line-through;
 }
 
+.content section.bookings .bookings-main .bookings-form-block .calendar-popup .time-slot-panel .slot-grid .time-slot.too-soon {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: var(--text-muted);
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 .content section.bookings .section-label {
   font-size: 0.75em;
   letter-spacing: 3px;

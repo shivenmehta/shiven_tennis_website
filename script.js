@@ -152,10 +152,12 @@ function showTimeSlots(date) {
         const fullSlot = `${dateStr} at ${slot}`
         const isBooked = bookedSlots.includes(fullSlot);
 
-
-        if (isBooked || isTooSoon) {
+        
+        if (isBooked) { 
             //Show as unavailable, not clickable
-            buttons += `<button class = "time-slot booked" disabled>${slot}</button>`
+            buttons += `<button class = "time-slot booked" disabled>${slot}</button>`;
+        } else if (isTooSoon) {
+            buttons += `<button class = "time-slot too-soon" disabled>${slot}</button>`;
         } else {
             buttons += `<button class = "time-slot" onclick = "pickTime('${slot}', this, '${dateStr}')">${slot}</button>`;
         }
