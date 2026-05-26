@@ -1033,7 +1033,7 @@ section.navigation .container .nav-header .page-headings .page-name:hover {
 @media (max-width: 768px) {
   /* Nav */
   section.navigation .container {
-    padding: 0em 1em 0em 1.5em;
+    padding: 0em 0em 0em 1.5em;
   }
   section.navigation .container .nav-header {
     font-size: 1em;
