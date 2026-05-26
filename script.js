@@ -201,6 +201,7 @@ function toggleCalendar() {
 
 //API request for form submission
 document.querySelector(".submit-btn").addEventListener('click', async () => {
+
     const data = {
         firstName: document.getElementById("first-name").value,
         lastName: document.getElementById("last-name").value,
@@ -209,6 +210,19 @@ document.querySelector(".submit-btn").addEventListener('click', async () => {
         datetime: document.getElementById("selected-datetime").value,
         skillLevel: document.getElementById("skill-level").value,
         notes: document.getElementById("notes").value
+    }
+
+    //Error checking to make sure all form fields are filled out
+    if (!data.firstName || !data.lastName || !data.email || !data.phone || !data.datetime || !data.skillLevel || !data.notes) {
+        alert('Please fill in all required fields and select a date and time');
+        return;
+    }
+
+    // Basic email format check from Claude
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        alert('Please enter a valid email address.');
+        return;
     }
 
     const response = await fetch(`${API_URL}/bookings`, {
