@@ -211,6 +211,7 @@ document.querySelector(".submit-btn").addEventListener('click', async () => {
 
     if (result.success) {
         alert("Booking Confirmed");
+        init(); //Reset the Calendar and Update Booked Slots
         document.getElementById("first-name").value = "";
         document.getElementById("last-name").value = "";
         document.getElementById("email").value = "";
