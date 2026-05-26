@@ -1089,7 +1089,7 @@ section.navigation {
 
         .page-headings { gap: 1em; }
 
-        .page-name { font-size: 0.85em; }
+        .page-name { font-size: 0.7em; }
     }
 
     .content {
@@ -1202,6 +1202,7 @@ section.navigation {
         /* Bookings */
         section.bookings {
             padding: 3em 1.5em;
+            overflow: hidden;
 
             .bookings-hero {
                 .bookings-heading { font-size: 4em; }
@@ -1210,6 +1211,33 @@ section.navigation {
             .bookings-main {
                 flex-direction: column;
                 width: 100%;
+                max-width: 100%;
+
+                .bookings-form-block {
+                    width: 100%;
+
+                    /* First Name/Last Name fields fixed column wise */
+                    .bookings-form {
+                        .form-row {
+                            flex-direction: column;
+                        }
+                    }
+
+                    .calendar-popup {
+                        flex-direction: column;  // ← stacks calendar and time slots vertically
+
+                        .wrapper {
+                            width: 100%;         // ← stretches to fit screen instead of fixed 320px
+                        }
+
+                        .time-slot-panel {
+                            margin-left: 0;      // ← removes left margin that causes overflow
+                            margin-top: 1em;
+                            border-top: 1px solid rgba(255, 255, 255, 0.1);
+                            width: 100%;
+                        }
+                    }
+                }
             }
         }
 

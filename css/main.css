@@ -1042,7 +1042,7 @@ section.navigation .container .nav-header .page-headings .page-name:hover {
     gap: 1em;
   }
   section.navigation .container .nav-header .page-name {
-    font-size: 0.85em;
+    font-size: 0.7em;
   }
   .content {
     /* Home Page */
@@ -1152,12 +1152,33 @@ section.navigation .container .nav-header .page-headings .page-name:hover {
   }
   .content section.bookings {
     padding: 3em 1.5em;
+    overflow: hidden;
   }
   .content section.bookings .bookings-hero .bookings-heading {
     font-size: 4em;
   }
   .content section.bookings .bookings-main {
     flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+  }
+  .content section.bookings .bookings-main .bookings-form-block {
+    width: 100%;
+    /* First Name/Last Name fields fixed column wise */
+  }
+  .content section.bookings .bookings-main .bookings-form-block .bookings-form .form-row {
+    flex-direction: column;
+  }
+  .content section.bookings .bookings-main .bookings-form-block .calendar-popup {
+    flex-direction: column;
+  }
+  .content section.bookings .bookings-main .bookings-form-block .calendar-popup .wrapper {
+    width: 100%;
+  }
+  .content section.bookings .bookings-main .bookings-form-block .calendar-popup .time-slot-panel {
+    margin-left: 0;
+    margin-top: 1em;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     width: 100%;
   }
   .content section.contact-page {
