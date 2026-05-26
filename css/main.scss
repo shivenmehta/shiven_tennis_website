@@ -1089,7 +1089,7 @@ section.navigation {
 
         .page-headings { gap: 1em; }
 
-        .page-name { font-size: 0.7em; }
+        .page-name { font-size: 0.6em; }
     }
 
     .content {
@@ -1245,6 +1245,7 @@ section.navigation {
         /* Contact */
         section.contact-page {
             padding: 0em 1.5em;
+            overflow: hidden;
 
             .contact-heading { font-size: 4em; }
         }
