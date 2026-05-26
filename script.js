@@ -141,11 +141,19 @@ function showTimeSlots(date) {
 
     let buttons = "";
 
+    //Calculation to check if selected time slot is within four days of today's date
+    const today = new Date();
+    today.setHours(0,0,0,0);
+    const diffMs = date - today; //Calculate the difference in miliseconds between selected date and todays date
+    const diffDays = (diffMs) / (1000 * 60 * 60 * 24);
+    const isTooSoon = diffDays <= 4;
+
     slots.forEach(slot => {
         const fullSlot = `${dateStr} at ${slot}`
         const isBooked = bookedSlots.includes(fullSlot);
 
-        if (isBooked) {
+
+        if (isBooked || isTooSoon) {
             //Show as unavailable, not clickable
             buttons += `<button class = "time-slot booked" disabled>${slot}</button>`
         } else {
