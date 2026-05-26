@@ -1071,3 +1071,100 @@ section.navigation {
 
 
 }
+
+/* Mobile CSS */
+
+@media (max-width: 768px) {
+
+    /* Nav */
+    section.navigation .container .nav-header {
+        font-size: 1em;
+
+        .page-headings {
+            gap: 1em;
+        }
+    }
+
+    /* Home Page */
+    section.home-page {
+        flex-direction: column;  /* stacks left and right side */
+        height: auto;
+        margin-top: 4em;
+        padding-bottom: 3em;
+
+        .home-block {
+            margin-left: 1.5em;
+            margin-right: 1.5em;
+
+            .welcome-greeting { font-size: 5em; }
+            .welcome-description { width: 100%; }
+            .action-tags { flex-direction: column; }
+        }
+
+        .home-page-cards {
+            margin: 2em 1.5em 0;
+            align-items: flex-start;
+            flex-direction: row;  /* cards side by side on mobile */
+            flex-wrap: wrap;
+        }
+    }
+
+    /* About Me */
+    section.about-me-page {
+        flex-direction: column;
+        height: auto;
+        padding-bottom: 3em;
+
+        .about-me-block {
+            margin-left: 1.5em;
+            margin-right: 1.5em;
+
+            .about-me-description { width: 100%; }
+            .about-me-tags { width: 100%; }
+        }
+
+        .about-me-picture {
+            margin: 2em 0 0 1.5em;
+
+            img {
+                width: 200px;
+                height: 200px;
+            }
+        }
+    }
+
+    /* Getting Started */
+    section.getting-started-page {
+        height: auto;
+
+        .getting-started-cards {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .ready-card {
+            width: 90%;
+            flex-direction: column;
+            text-align: center;
+            gap: 1em;
+            padding: 2em;
+        }
+    }
+
+    /* Bookings */
+    section.bookings {
+        padding: 3em 1.5em;
+
+        .bookings-heading { font-size: 4em; }
+
+        .bookings-main {
+            flex-direction: column;
+            width: 100%;
+        }
+    }
+
+    /* Contact */
+    section.contact-page {
+        padding: 4em 1.5em;
+    }
+}

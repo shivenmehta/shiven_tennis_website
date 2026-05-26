@@ -1023,4 +1023,96 @@ section.navigation .container .nav-header .page-headings .page-name:hover {
   opacity: 0.7;
   margin-bottom: 2em;
 }
+
+/* Mobile CSS */
+@media (max-width: 768px) {
+  /* Nav */
+  section.navigation .container .nav-header {
+    font-size: 1em;
+  }
+  section.navigation .container .nav-header .page-headings {
+    gap: 1em;
+  }
+  /* Home Page */
+  section.home-page {
+    flex-direction: column;
+    /* stacks left and right side */
+    height: auto;
+    margin-top: 4em;
+    padding-bottom: 3em;
+  }
+  section.home-page .home-block {
+    margin-left: 1.5em;
+    margin-right: 1.5em;
+  }
+  section.home-page .home-block .welcome-greeting {
+    font-size: 5em;
+  }
+  section.home-page .home-block .welcome-description {
+    width: 100%;
+  }
+  section.home-page .home-block .action-tags {
+    flex-direction: column;
+  }
+  section.home-page .home-page-cards {
+    margin: 2em 1.5em 0;
+    align-items: flex-start;
+    flex-direction: row;
+    /* cards side by side on mobile */
+    flex-wrap: wrap;
+  }
+  /* About Me */
+  section.about-me-page {
+    flex-direction: column;
+    height: auto;
+    padding-bottom: 3em;
+  }
+  section.about-me-page .about-me-block {
+    margin-left: 1.5em;
+    margin-right: 1.5em;
+  }
+  section.about-me-page .about-me-block .about-me-description {
+    width: 100%;
+  }
+  section.about-me-page .about-me-block .about-me-tags {
+    width: 100%;
+  }
+  section.about-me-page .about-me-picture {
+    margin: 2em 0 0 1.5em;
+  }
+  section.about-me-page .about-me-picture img {
+    width: 200px;
+    height: 200px;
+  }
+  /* Getting Started */
+  section.getting-started-page {
+    height: auto;
+  }
+  section.getting-started-page .getting-started-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+  section.getting-started-page .ready-card {
+    width: 90%;
+    flex-direction: column;
+    text-align: center;
+    gap: 1em;
+    padding: 2em;
+  }
+  /* Bookings */
+  section.bookings {
+    padding: 3em 1.5em;
+  }
+  section.bookings .bookings-heading {
+    font-size: 4em;
+  }
+  section.bookings .bookings-main {
+    flex-direction: column;
+    width: 100%;
+  }
+  /* Contact */
+  section.contact-page {
+    padding: 4em 1.5em;
+  }
+}
 /*# sourceMappingURL=main.css.map */
