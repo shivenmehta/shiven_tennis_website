@@ -1,7 +1,7 @@
 
 
 const API_URL = window.location.hostname === "localhost" ? "http://localhost:3000": 
-                "https://shiventenniswebsite-production.up.railway.app";
+                "https://shiven-tennis-website-355e82df78df.herokuapp.com";
 
 //Get Booking ID from URL
 const params = new URLSearchParams(window.location.search);
