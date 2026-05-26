@@ -1087,9 +1087,10 @@ section.navigation {
 
         .tennis-ball-icon { margin-left: 0.5em; }
 
-        .page-headings { gap: 1em; }
-
-        .page-name { font-size: 0.6em; }
+        .page-headings { 
+            gap: 1em; 
+            .page-name { font-size: 0.9em; }
+        }
     }
 
     .content {
@@ -1246,6 +1247,11 @@ section.navigation {
         section.contact-page {
             padding: 0em 1.5em;
             overflow: hidden;
+
+            .contact-card {
+                width: auto;
+                padding: 1.1em 1em;
+            }
 
             .contact-heading { font-size: 4em; }
         }

@@ -1041,8 +1041,8 @@ section.navigation .container .nav-header .page-headings .page-name:hover {
   section.navigation .container .nav-header .page-headings {
     gap: 1em;
   }
-  section.navigation .container .nav-header .page-name {
-    font-size: 0.6em;
+  section.navigation .container .nav-header .page-headings .page-name {
+    font-size: 0.9em;
   }
   .content {
     /* Home Page */
@@ -1187,6 +1187,10 @@ section.navigation .container .nav-header .page-headings .page-name:hover {
   .content section.contact-page {
     padding: 0em 1.5em;
     overflow: hidden;
+  }
+  .content section.contact-page .contact-card {
+    width: auto;
+    padding: 1.1em 1em;
   }
   .content section.contact-page .contact-heading {
     font-size: 4em;
