@@ -13,13 +13,21 @@ app.use(express.json()); //Let express read JSON requests
 
 
 //Connect to PostgreSQL Database
+/*
 const pool = new Pool({
     user: process.env.PGUSER,
     host: process.env.PGHOST,
     database: process.env.PGDATABASE,
     password: process.env.PGPASSWORD,
     port: process.env.PGPORT
-});
+});*/
+
+const pool = new Pool ({
+    connectionString: process.env.DATABASE_URL,
+    ssl: {rejectUnauthorized: false}
+})
+
+
 
 //Create transporter for nodemailer
 const transporter = nodemailer.createTransport({
