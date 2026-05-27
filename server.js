@@ -1,8 +1,12 @@
+
+
 require('dotenv').config();  // ← add this as the very first line
 const express = require('express');
 const {Pool} = require('pg');
 const cors = require('cors');
 const nodemailer = require('nodemailer');
+const rateLimit = require('express-rate-limit');
+const validator = require('validator');
 
 const app = express();
 app.use(cors({
@@ -22,6 +26,7 @@ const pool = new Pool({
     port: process.env.PGPORT
 });*/
 
+//Connect to PostgreSQL Database
 const pool = new Pool({
     connectionString: process.env.DATABASE_URL,
     ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false
@@ -37,6 +42,17 @@ const transporter = nodemailer.createTransport({
         pass: process.env.GMAIL_PASS
     }
 });
+
+//Set up Rate Limiter - Maximum of 10 API requests every 15 minutes
+const limiter = rateLimit({
+    windowMs: 1000 * 60 * 15, //15 minutes
+    max: 10,
+    message: {sucess: false, message: 'Too many requests, please try again later.'}
+});
+
+//Use Rate Limiter for Booking Slots and Cancelling Slots
+app.use('/bookings', limiter);
+app.use('/cancel', limiter);
 
 //Function to build Google Calendar Link for Email
 function buildCalendarLink(datetime) {
@@ -66,6 +82,12 @@ function buildCalendarLink(datetime) {
 app.post('/bookings', async (req, res) => {
     const {firstName, lastName, email, phone, datetime, skillLevel, notes} = req.body;
 
+    //Sanitize User Input
+    const cleanFirstName = validator.escape(firstName);
+    const cleanLastName = validator.escape(lastName);
+    const cleanEmail = validator.normalizeEmail(email);
+    const cleanNotes = notes ? validator.escape(notes) : '';
+
     //Add User Form Submission to SQL Data Base using query
     try {
 
@@ -75,6 +97,7 @@ app.post('/bookings', async (req, res) => {
                 VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING id`,    
             [firstName, lastName, email, phone, datetime, skillLevel, notes]
         );
+        
 
         //Set up cancellation link for user based on the SQL id
         const bookingId = insertResult.rows[0].id;

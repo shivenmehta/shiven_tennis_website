@@ -3,9 +3,11 @@
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
+    "express-rate-limit": "^8.5.2",
     "nodemailer": "^8.0.7",
     "nodemon": "^3.1.14",
-    "pg": "^8.20.0"
+    "pg": "^8.20.0",
+    "validator": "^13.15.35"
   },
   "scripts": {
     "start": "node server.js",

@@ -202,7 +202,7 @@ function toggleCalendar() {
 //API request for form submission
 document.querySelector(".submit-btn").addEventListener('click', async () => {
 
-    const data = {
+    /*const data = {
         firstName: document.getElementById("first-name").value,
         lastName: document.getElementById("last-name").value,
         email: document.getElementById("email").value,
@@ -210,10 +210,20 @@ document.querySelector(".submit-btn").addEventListener('click', async () => {
         datetime: document.getElementById("selected-datetime").value,
         skillLevel: document.getElementById("skill-level").value,
         notes: document.getElementById("notes").value
-    }
+    }*/
+
+    //Define all variables for error checking
+    const firstName = document.getElementById('first-name').value.trim();
+    const lastName = document.getElementById('last-name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const datetime = document.getElementById('selected-datetime').value;
+    const skillLevel = document.getElementById('skill-level').value;
+    const notes = document.getElementById('notes').value.trim();
+
 
     //Error checking to make sure all form fields are filled out
-    if (!data.firstName || !data.lastName || !data.email || !data.phone || !data.datetime || !data.skillLevel || !data.notes) {
+    if (!firstName || !lastName || !email || !phone || !skillLevel) {
         alert('Please fill in all required fields and select a date and time');
         return;
     }
@@ -225,37 +235,49 @@ document.querySelector(".submit-btn").addEventListener('click', async () => {
         return;
     }
 
-    const response = await fetch(`${API_URL}/bookings`, {
-        method: "POST", //We are putting data into the database, so we use POST
-        headers: {'Content-Type': 'application/json'}, //Tells backend that we are sending data in JSON formatting
-        body: JSON.stringify(data) //Turns our data array into a JSON formatting
-    })
+    // Basic phone check from Claude — must be at least 10 digits
+    const phoneDigits = phone.replace(/\D/g, '');  // strip non-digits
+    if (phoneDigits.length < 10) {
+        alert('Please enter a valid phone number.');
+        return;
+    }
 
-    const result = await response.json();
+    const data = {firstName, lastName, email, phone, datetime, skillLevel, notes};
 
-    if (result.success) {
-        alert("Booking Confirmed");
-        init(); //Reset the Calendar and Update Booked Slots
-        document.getElementById("first-name").value = "";
-        document.getElementById("last-name").value = "";
-        document.getElementById("email").value = "";
-        document.getElementById("phone").value = "";
-        document.getElementById("skill-level").value = "";
-        document.getElementById("notes").value = "";
-        document.getElementById("calendar-popup").style.display = "none";
-
-        //Remove selected tags from all other day "li" tags
-        const dayTag = document.querySelectorAll(".days li");
-        dayTag.forEach(day => {
-            day.classList.remove("selected");
+    //Disable button to prevent double submission
+    const button = document.querySelector('.submit-btn');
+    button.disabled = true;
+    button.textContent = 'Booking';
+    
+    try {
+        const response = await fetch(`${API_URL}/bookings`, {
+            method: "POST", //We are putting data into the database, so we use POST
+            headers: {'Content-Type': 'application/json'}, //Tells backend that we are sending data in JSON formatting
+            body: JSON.stringify(data) //Turns our data array into a JSON formatting
         })
 
-        //Remove the previous datetime selected by the booking that just occurred
-        document.getElementById("selected-datetime").value = "";
-        document.getElementById("datetime-label").textContent = "";
+        const result = await response.json();
 
-    } else {
-        alert("Something went wrong, please try again later!");
+        if (result.success) {
+            alert("Booking Confirmed");
+            window.location.reload(); //Simple reload page to reset everything - removed redundant code below
+
+        } else {
+            alert("Something went wrong, please try again later!");
+
+            //Re-enable button so user can try again.
+            button.disabled = false;
+            button.textContent = 'Confirm Booking →';
+        }
+    } catch (err) {
+        console.error(err);
+        alert('Something went wrong, try again later');
+
+        // Re-enable button on network error as well
+        button.disabled = false;
+        button.textContent = 'Confirm Booking →';
     }
+
+    
 
 })
