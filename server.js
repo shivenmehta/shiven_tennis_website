@@ -133,7 +133,7 @@ app.post('/bookings', async (req, res) => {
                         </a>
 
                         <p style="margin-top: 2em; color: #888; font-size: 0.85em;">
-                            Questions? Reply to this email or visit shiventenniswebsite.netlify.app
+                            Questions? Reply to this email or visit shiven-tennis-website.vercel.app
                         </p>
 
                         <a href="${cancelLink}"
@@ -211,7 +211,7 @@ app.post('/cancel', async (req,res) => {
                         </div>  
 
                         <p style="margin-top: 2em; color: #888; font-size: 0.85em;">
-                            Questions? Reply to this email or visit shiventenniswebsite.netlify.app
+                            Questions? Reply to this email or visit shiven-tennis-website.vercel.app
                         </p>
 
                     </div>
