@@ -19,13 +19,13 @@ const months = ["January", "February", "March", "April", "May", "June", "July", 
 
 //Create array for Shiven's availability
 const availability = {
-    0: ['4:00 PM', '5:00 PM', '6:00 PM'], //Sunday
-    1: ['4:00 PM', '5:00 PM', '6:00 PM'], //Monday
-    2: ['4:00 PM', '5:00 PM', '6:00 PM'], //Tuesday
-    3: ['4:00 PM', '5:00 PM', '6:00 PM'], //Wednesday
-    4: ['4:00 PM', '5:00 PM', '6:00 PM'], //Thursday
-    5: ['4:00 PM', '5:00 PM', '6:00 PM'], //Friday
-    6: ['4:00 PM', '5:00 PM', '6:00 PM'], //Saturday
+    0: ['10:00 AM', '12:00 PM', '2:00 PM', '4:00 PM', '6:00 PM', '8:00 PM'], //Sunday
+    1: ['10:00 AM', '12:00 PM', '2:00 PM', '4:00 PM', '6:00 PM', '8:00 PM'], //Monday
+    2: ['10:00 AM', '12:00 PM', '2:00 PM', '4:00 PM', '6:00 PM', '8:00 PM'], //Tuesday
+    3: ['10:00 AM', '12:00 PM', '2:00 PM', '4:00 PM', '6:00 PM', '8:00 PM'], //Wednesday
+    4: ['10:00 AM', '12:00 PM', '2:00 PM', '4:00 PM', '6:00 PM', '8:00 PM'], //Thursday
+    5: ['10:00 AM', '12:00 PM', '2:00 PM', '4:00 PM', '6:00 PM', '8:00 PM'], //Friday
+    6: ['10:00 AM', '12:00 PM', '2:00 PM', '4:00 PM', '6:00 PM', '8:00 PM'], //Saturday
 }
 
 let bookedSlots = [];
