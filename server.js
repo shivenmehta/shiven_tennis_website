@@ -10,7 +10,7 @@ const validator = require('validator');
 
 const app = express();
 app.use(cors({
-    origin: ['http://localhost:5501', 'https://shiventenniswebsite.netlify.app']
+    origin: ['http://localhost:5501', 'https://shiventenniswebsite.netlify.app', 'https://shiven-tennis-website.vercel.app']
 }));
 app.use(express.json()); //Let express read JSON requests
 
