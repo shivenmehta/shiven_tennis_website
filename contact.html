@@ -1,184 +1,201 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-XL93X3J2TT"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-XL93X3J2TT");
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact · Shiven Mehta</title>
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
- 
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital@1&display=swap"
+      rel="stylesheet"
+    />
+
     <style>
-        section.contact-page {
-            min-height: 80vh;
-            display: flex;
-            align-items: center;
-            padding: 1em 4.5em;
-        }
- 
-        .contact-block {
-            max-width: 600px;
-        }
- 
-        .contact-eyebrow::before {
-            content: '';
-            display: inline-block;
-            width: 24px;
-            height: 2px;
-            background: var(--yellow);
-        }
- 
-        .contact-heading {
-            font-family: var(--font-heading);
-            font-size: clamp(4em, 8vw, 7em);
-            line-height: 0.9;
-            margin: 0 0 0.3em;
-            color: var(--off-white);
-        }
- 
-        .contact-heading span {
-            color: var(--yellow);
-        }
- 
-        .contact-subheading {
-            font-family: var(--font-italic);
-            font-style: italic;
-            color: var(--off-white);
-            opacity: 0.7;
-            font-size: 1.15em;
-            margin: 0 0 2em;
-            max-width: 420px;
-            line-height: 1.6;
-        }
- 
-        .contact-cards {
-            display: flex;
-            flex-direction: column;
-            gap: 1em;
-        }
- 
-        .contact-card {
-            display: flex;
-            align-items: center;
-            gap: 1.2em;
-            background: rgba(61, 122, 82, 0.25);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            padding: 1.4em 1.8em;
-            text-decoration: none;
-            transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
-            cursor: pointer;
-        }
- 
-        .contact-card:hover {
-            transform: translateX(8px);
-            border-color: rgba(212, 232, 64, 0.3);
-            background: rgba(61, 122, 82, 0.4);
-        }
- 
-        .contact-card-icon {
-            font-size: 1.6em;
-            width: 48px;
-            height: 48px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(212, 232, 64, 0.1);
-            border: 1px solid rgba(212, 232, 64, 0.2);
-            border-radius: 12px;
-            flex-shrink: 0;
-        }
- 
-        .contact-card-text {
-            display: flex;
-            flex-direction: column;
-            gap: 0.2em;
-        }
- 
-        .contact-card-label {
-            font-size: 0.72em;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            font-weight: 500;
-        }
- 
-        .contact-card-value {
-            font-size: 1.05em;
-            color: var(--off-white);
-            font-weight: 500;
-        }
- 
-        .contact-card-arrow {
-            margin-left: auto;
-            color: var(--yellow);
-            font-size: 1.2em;
-            opacity: 0;
-            transform: translateX(-8px);
-            transition: opacity 0.2s ease, transform 0.2s ease;
-        }
- 
-        .contact-card:hover .contact-card-arrow {
-            opacity: 1;
-            transform: translateX(0);
-        }
- 
-        .contact-divider {
-            width: 40px;
-            height: 2px;
-            background: rgba(255,255,255,0.1);
-            margin: 0.5em 0;
-        }
+      section.contact-page {
+        min-height: 80vh;
+        display: flex;
+        align-items: center;
+        padding: 1em 4.5em;
+      }
+
+      .contact-block {
+        max-width: 600px;
+      }
+
+      .contact-eyebrow::before {
+        content: "";
+        display: inline-block;
+        width: 24px;
+        height: 2px;
+        background: var(--yellow);
+      }
+
+      .contact-heading {
+        font-family: var(--font-heading);
+        font-size: clamp(4em, 8vw, 7em);
+        line-height: 0.9;
+        margin: 0 0 0.3em;
+        color: var(--off-white);
+      }
+
+      .contact-heading span {
+        color: var(--yellow);
+      }
+
+      .contact-subheading {
+        font-family: var(--font-italic);
+        font-style: italic;
+        color: var(--off-white);
+        opacity: 0.7;
+        font-size: 1.15em;
+        margin: 0 0 2em;
+        max-width: 420px;
+        line-height: 1.6;
+      }
+
+      .contact-cards {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+      }
+
+      .contact-card {
+        display: flex;
+        align-items: center;
+        gap: 1.2em;
+        background: rgba(61, 122, 82, 0.25);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        padding: 1.4em 1.8em;
+        text-decoration: none;
+        transition:
+          transform 0.25s ease,
+          border-color 0.25s ease,
+          background 0.25s ease;
+        cursor: pointer;
+      }
+
+      .contact-card:hover {
+        transform: translateX(8px);
+        border-color: rgba(212, 232, 64, 0.3);
+        background: rgba(61, 122, 82, 0.4);
+      }
+
+      .contact-card-icon {
+        font-size: 1.6em;
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(212, 232, 64, 0.1);
+        border: 1px solid rgba(212, 232, 64, 0.2);
+        border-radius: 12px;
+        flex-shrink: 0;
+      }
+
+      .contact-card-text {
+        display: flex;
+        flex-direction: column;
+        gap: 0.2em;
+      }
+
+      .contact-card-label {
+        font-size: 0.72em;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        font-weight: 500;
+      }
+
+      .contact-card-value {
+        font-size: 1.05em;
+        color: var(--off-white);
+        font-weight: 500;
+      }
+
+      .contact-card-arrow {
+        margin-left: auto;
+        color: var(--yellow);
+        font-size: 1.2em;
+        opacity: 0;
+        transform: translateX(-8px);
+        transition:
+          opacity 0.2s ease,
+          transform 0.2s ease;
+      }
+
+      .contact-card:hover .contact-card-arrow {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .contact-divider {
+        width: 40px;
+        height: 2px;
+        background: rgba(255, 255, 255, 0.1);
+        margin: 0.5em 0;
+      }
     </style>
-</head>
- 
-<body>
- 
+  </head>
+
+  <body>
     <!-- Navigation -->
     <section class="navigation">
-        <div class="container">
-            <div class="nav-header">
-                <div class="tennis-ball-icon">🎾</div>
-                <a class="name" href="index.html">Shiven Mehta</a>
-                <div class="page-headings">
-                    <a class="page-name" href="index.html#about-me">About Me</a>
-                    <a class="page-name" href="bookings.html">Bookings</a>
-                    <a class="page-name" href="contact.html">Contact</a>
-                </div>
-            </div>
+      <div class="container">
+        <div class="nav-header">
+          <div class="tennis-ball-icon">🎾</div>
+          <a class="name" href="index.html">Shiven Mehta</a>
+          <div class="page-headings">
+            <a class="page-name" href="index.html#about-me">About Me</a>
+            <a class="page-name" href="bookings.html">Bookings</a>
+            <a class="page-name" href="contact.html">Contact</a>
+          </div>
         </div>
+      </div>
     </section>
- 
+
     <!-- Main Content -->
     <main class="content">
-        <section class="contact-page">
-            <div class="contact-block">
- 
-                <h1 class="contact-heading">
-                    Let's <span>Talk.</span>
-                </h1>
- 
-                <p class="contact-subheading">
-                    Have a question before booking? Feel free to reach out directly.
-                </p>
- 
-                <div class="contact-cards">
- 
-                    <!-- Email -->
-                    <a class="contact-card" href="mailto:shiven.tennis@gmail.com">
-                        <div class="contact-card-icon">📧</div>
-                        <div class="contact-card-text">
-                            <span class="contact-card-label">Email</span>
-                            <span class="contact-card-value">shiven.tennis@gmail.com</span>
-                        </div>
-                        <span class="contact-card-arrow">→</span>
-                    </a>
- 
-                    <div class="contact-divider"></div>
- 
-                    <!-- Phone -->
-                    <!--
+      <section class="contact-page">
+        <div class="contact-block">
+          <h1 class="contact-heading">Let's <span>Talk.</span></h1>
+
+          <p class="contact-subheading">
+            Have a question before booking? Feel free to reach out directly.
+          </p>
+
+          <div class="contact-cards">
+            <!-- Email -->
+            <a class="contact-card" href="mailto:shiven.tennis@gmail.com">
+              <div class="contact-card-icon">📧</div>
+              <div class="contact-card-text">
+                <span class="contact-card-label">Email</span>
+                <span class="contact-card-value">shiven.tennis@gmail.com</span>
+              </div>
+              <span class="contact-card-arrow">→</span>
+            </a>
+
+            <div class="contact-divider"></div>
+
+            <!-- Phone -->
+            <!--
                     <a class="contact-card" href="tel:+14154650953">
                         <div class="contact-card-icon">📱</div>
                         <div class="contact-card-text">
@@ -188,12 +205,9 @@
                         <span class="contact-card-arrow">→</span>
                     </a>
                     -->
- 
-                </div>
- 
-            </div>
-        </section>
+          </div>
+        </div>
+      </section>
     </main>
- 
-</body>
+  </body>
 </html>
