@@ -1145,8 +1145,9 @@ section.navigation {
 
             .home-page-cards {
                 margin: 3em 1.5em 0;
-                align-items: right;
-                flex-direction: column;
+                //align-items: right;
+                display: flex;
+                //flex-direction: column;
                 width: calc(100% - 3em);
                 gap: 1.5em;
 

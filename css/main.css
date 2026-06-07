@@ -1101,8 +1101,7 @@ section.navigation .container .nav-header .page-headings .page-name:hover {
   }
   .content section.home-page .home-page-cards {
     margin: 3em 1.5em 0;
-    align-items: right;
-    flex-direction: column;
+    display: flex;
     width: calc(100% - 3em);
     gap: 1.5em;
   }
